@@ -280,149 +280,154 @@
 
 // // ЛОГИЧЕСКИЕ ОПЕРАТОРЫ: &&, ||, !.
 
-// // ложные значения, приводящие к false
-// // 0;
-// console.log(Boolean(0)); // false
-// console.log(typeof 0); // number
-// // NaN;
-// console.log(Boolean(NaN)); // false
-// console.log(typeof NaN); // number
-// // null;
-// console.log(Boolean(null)); // false
-// console.log(typeof null); // object
-// // undefined;
-// console.log(Boolean(undefined)); // false
-// console.log(typeof undefined); // undefined
-// // "" || "";
-// console.log(Boolean("")); // false
-// console.log(typeof ""); // string
-// // НО!
-// console.log(Boolean(" ")); // true
-// console.log(typeof " "); // string
-// // // false;
-// console.log(Boolean(false)); // false
-// console.log(typeof false); // boolean
+// ложные значения, приводящие к false
+// 0;
+console.log(Boolean(0)); // false
+console.log("0", typeof 0); // number
+// NaN;
+console.log(Boolean(NaN)); // false
+console.log("NaN", typeof NaN); // number
+// null;
+console.log(Boolean(null)); // false
+console.log("null", typeof null); // object
+// undefined;
+console.log(Boolean(undefined)); // false
+console.log("undefined", typeof undefined); // undefined
+// false;
+console.log(Boolean(false)); // false
+console.log("false", typeof false); // false
+// "" || "";
+console.log(Boolean("")); // false
+console.log("", typeof ""); // string
+// НО!
+console.log(Boolean(" ")); // true
+console.log(" ", typeof " "); // string
 
-// console.log(Number(false)); // 0
-// console.log(Number(true)); // 1
+console.log(Number(false)); // 0
+console.log(Number(true)); // 1
 
-// // все остальные к true
-// console.log(Boolean("my name")); // true
-// console.log(typeof "my name"); // string
+// все остальные к true
+console.log(Boolean("my name")); // true
+console.log(typeof "my name"); // string
 
-// console.log(false == undefined); // false
-// console.log(false == null); // false
+// !!!!!!!!!!!!!!!!!!!!!!
+console.log(undefined == false); // false
+console.log(null == false); // false
+console.log(null == undefined); // true, почему object и undefined true?
+console.log(null === undefined); // false
+// !!!!!!!!!!!!!!!!!!!!!!
 
-// console.log(null === undefined); // false
-// console.log(null == undefined); // true, почему object и undefined true?
-// // Это специальное правило языка.
-// // Эти значения равны друг другу и не равны никаким другим значениям.
+// Это специальное правило языка.
+// Эти значения равны друг другу и не равны никаким другим значениям.
+// При использовании математических операторов и других операторов сравнения < > <= >=
+// Значения null/undefined преобразуются к числам:
+// null становится 0, а
+// undefined – NaN.
 
-// // При использовании математических операторов и других операторов сравнения < > <= >=
-// // Значения null/undefined преобразуются к числам:
-// // null становится 0, а
-// // undefined – NaN.
+// && вернет последнее true, если все операнды истинные
+const KPI = 30;
+const fact = KPI > 20 && KPI < 31;
+//               true && true;
+console.log(fact); // true
+console.log("cat" && "dog" && "parrot"); // parrot
+//           true && true && true
+// в остальных - false
+const fact2 = KPI > 20 && KPI < 29;
+//                true && false;
+console.log(fact2); // false
+console.log("cat" && false); // false
 
-// // && вернет последнее true, если все операнды истинные
-// const KPI = 30;
-// const fact = KPI > 20 && KPI < 31;
-// console.log(fact); // true
-// console.log("cat" && "dog" && "parrot"); // parrot
+// если первый операнд false, остальные уже не вычисляются
+const fact1 = KPI > 31 && KPI < 32;
+//               false && true;
+console.log(fact1); // false
+console.log(false && "parrot"); // false
 
-// // в остальных - false
-// const fact2 = KPI > 20 && KPI < 29;
-// console.log(fact2); // false
-// console.log("cat" && false); // false
+// || вернет первый true, если хотя бы один операнд истинный
+const age = 30;
+const trueAge = age < 31 || age > 29;
+//                  true || true;
+console.log(trueAge); // true - оба истинные
+console.log("cat" || "parrot"); // cat
+//           true || true; // cat
+// если первый операнд true, остальные уже не вычисляются
+const trueAge1 = age < 31 || age > 32;
+//                   true || false;
+console.log(trueAge1); // true - только левый истинный
+console.log("cat" || false); // cat
+//           true || false; // cat
+const trueAge2 = age < 29 || age > 27;
+//                  false || true; // true
+console.log(trueAge2); // true - только правый истинный
+console.log(false || "parrot"); // parrot
 
-// // если первый операнд false, остальные уже не вычисляются
-// const fact1 = KPI > 31 && KPI < 32;
-// console.log(fact1); // false
-// console.log(false && "parrot"); // false
+const trueAge3 = age < 29 || age > 31;
+//                  false || false;
+console.log(trueAge3); // false - оба ложные
 
-// // || вернет первый true, если хотя бы один операнд истинный
-// const age = 30;
-// const trueAge = age < 31 || age > 29;
-// console.log(trueAge); // true - оба истинные
-// console.log("cat" || "parrot"); // cat
+// ! после приведения к булю, меняет его значение на противоположное
+console.log(!true); // false
+console.log(!false); // true
 
-// // если первый операнд true, остальыне уже не вычисляются
-// const trueAge1 = age < 31 || age > 32;
-// console.log(trueAge1); // true - только левый истинный
-// console.log("cat" || false); // cat
+console.log(!1); // false
+console.log(!!1); // true - двойное отрицание
 
-// const trueAge2 = age < 29 || age > 27;
-// console.log(trueAge2); // true - только правый истинный
-// console.log(false || "parrot"); // parrot
+console.log(!0); // true
+console.log(!!0); // false - двойное отрицание
 
-// const trueAge3 = age < 29 || age > 31;
-// console.log(trueAge3); // false - оба ложные
+console.log(!"cat"); // false
 
-// const trueAge4 = age < 29 || age > 31 || age > 32;
-// console.log(trueAge4); // false - все ложные
-
-// const trueAge5 = age < 29 || age > 25 || age > 50;
-// console.log(trueAge5); // true - хоть и только один - истинный
-
-// // ! после приведения к булю, меняет его значение на противоположное
-// console.log(!true); // false
-// console.log(!false); // true
-
-// console.log(!1); // false
-// console.log(!!1); // true - двойное отрицание
-
-// console.log(!0); // true
-// console.log(!!0); // false - двойное отрицание
-
-// console.log(!"cat"); // false
-
-// // приоритет выполнения логических операторов
-// const quantity = 50;
+// приоритет выполнения логических операторов
+const quantity = 50;
 
 // // && выше приоритет, чем у ||
-// console.log((false && true) || true); // true
-// //                  (false) || true
-// console.log(false && (true || true)); // false
-// //          false && (true); // false
-// // если || - true, то && НЕ вычисляется
-// console.log((quantity > 39 && quantity < 49) || quantity > 48); // true
-// //                           (true && false) || true; // true
-// //                                     false || true; // true
-// console.log((true && false) || "parrot"); // parrot
-// //                    false || parrot; // parrot
-// console.log((quantity > 51 && quantity < 53) || quantity > 48); // true
-// //                             false && true || true; // true
-// //                                     false || true; // true
-// console.log((quantity > 51 && quantity < 49) || quantity > 49); // true
-// //                            false && false || true; // true
-// //                                     false || true; // true
-// // если || - false, то && вычисляется
-// // при этом, если && тоже false - возвращается значение ||
-// // при этом, если && тоже true - возвращается значение &&
-// console.log((quantity > 51 && quantity < 51) || quantity > 52); // false
-// //                             false && true || false; // false
-// //                                     false || false; // false
-// console.log((quantity > 39 && quantity < 49) || quantity > 51); // false
-// //                             true && false || false; // false
-// //                                     false || false; // false
-// console.log((quantity > 39 && quantity > 49) || quantity > 51); // false
-// //                              true && true || false; // true
-// //                                      true || false; // true
-// console.log((quantity > 51 && quantity < 49) || quantity > 52); // false
-// //                            false && false || false; // false
-// //                                     false || false; // false
-// console.log((false && true) || NaN); // NaN
-// //                    false || NaN; // NaN
-// console.log((false && false) || NaN); // NaN
-// //                     false || NaN; // NaN
-// console.log((true && true) || NaN); // true
-// //                    true || NaN; // true
+console.log((false && true) || true); // true
+//                  (false) || true
+console.log(false && (true || true)); // false
+//          false && (true); // false
+// если || - true, то && НЕ вычисляется
+console.log((quantity > 39 && quantity < 49) || quantity > 48); // true
+//                           (true && false) || true; // true
+//                                     false || true; // true
+console.log((true && false) || "parrot"); // parrot
+//                    false || parrot; // parrot
+console.log((quantity > 51 && quantity < 53) || quantity > 48); // true
+//                           (false && true) || true; // true
+//                                     false || true; // true
+console.log((quantity > 51 && quantity < 49) || quantity > 49); // true
+//                            false && false || true; // true
+//                                     false || true; // true
+// если || - false, то && вычисляется
+// при этом, если && тоже false - возвращается значение ||
+// при этом, если && тоже true - возвращается значение &&
+console.log((quantity > 51 && quantity < 51) || quantity > 52); // false
+//                             false && true || false; // false
+//                                     false || false; // false
+console.log((quantity > 39 && quantity < 49) || quantity > 51); // false
+//                             true && false || false; // false
+//                                     false || false; // false
+console.log((quantity > 39 && quantity > 49) || quantity > 51); // false
+//                              true && true || false; // true
+//                                      true || false; // true
+console.log((quantity > 51 && quantity < 49) || quantity > 52); // false
+//                            false && false || false; // false
+//                                     false || false; // false
+
+console.log((false && true) || NaN); // NaN
+//                    false || NaN; // NaN
+console.log((false && false) || NaN); // NaN
+//                     false || NaN; // NaN
+console.log((true && true) || NaN); // true
+//                    true || NaN; // true
+console.log(NaN || (true && true)); // true
+//          NaN || true; // true
 
 // ВЕТВЛЕНИЯ управляют потоком выполнения программы
 
 // IF
 // если условие выполняется (true), то код внутри {} выполнится
 // let cost;
-// const subscription = "pro";
+// const subscription = "pr";
 
 // if (subscription === "pro") {
 //   cost = 100;
@@ -432,13 +437,14 @@
 //   cost = 0;
 // }
 
-// if (subscription === "pro") {
+// if (subscription === "pr") {
 //   cost = 34;
 // }
 
 // console.log(cost); // 100 || 0
 
 // IF ELSE
+// example 1 ---------
 // let day = prompt("Enter today day please");
 // let weekday;
 
@@ -447,8 +453,10 @@
 // } else {
 //   weekday = "workday";
 // }
+// console.log(day);
 // console.log(weekday);
 
+// example 2 ---------
 // let value = prompt("Boolean value");
 // let bool;
 
@@ -546,7 +554,9 @@
 
 //   default:
 //     alert("Invalid entered data");
+//     weekday = "invalid data";
 // }
+
 // console.log(`${day} is ${weekday}`); // undefined, если ввели невалидный день
 
 // ОБЛАСТЬ ВИДИМОСТИ === VARIABLE SCOPE
@@ -554,33 +564,35 @@
 // 2. BLOCK SCOPE
 // example 1 ---------
 // let myFirstName = "Sasha";
+// console.log("GLOBAL scope:", myFirstName); // GLOBAL scope: Sasha
 
 // if (true) {
 //   console.log("BLOCK scope:", myFirstName); // BLOCK scope: Sasha
 // }
-// console.log("GLOBAL scope:", myFirstName); // GLOBAL scope: Sasha
 
 // if (true) {
 //   let mySecondName = "Hrevtsova";
 //   console.log("BLOCK scope:", mySecondName); // BLOCK scope: Hrevtsova
 // }
+
 // console.log("GLOBAL scope:", mySecondName); // GLOBAL scope: Uncaught ReferenceError: mySecondName is not defined
 
 // example 2 ---------
-// const global = "global";
+// const global = "GLOBAL!!!";
+// console.log(global); // global
 
 // if (true) {
 //   const blockA = "block A";
-//   console.log(global); // global
 //   console.log(blockA); // block A
+//   console.log(global); // global
 //   //   console.log(blockB); // Uncaught ReferenceError: blockB is not defined at module1.js:463
 //   //   console.log(blockC); // Uncaught ReferenceError: blockB is not defined at module1.js:464
 
 //   if (true) {
-//     const blockB = "block B";
-//     console.log(global); // global
 //     console.log(blockA); // block A
+//     const blockB = "block B";
 //     console.log(blockB); // block B
+//     console.log(global); // global
 //     // console.log(blockC); // Uncaught ReferenceError: blockB is not defined at module1.js:471
 //   }
 // }
@@ -593,7 +605,7 @@
 //   //   console.log(blockB); // ReferenceError: blockB is not defined
 // }
 
-// // console.log(global); // global
+// console.log(global); // global
 // // console.log(blockA); // ReferenceError: blockA is not defined
 // // console.log(blockB); // ReferenceError: blockB is not defined
 // // console.log(blockC); // ReferenceError: blockC is not defined
@@ -608,7 +620,7 @@
 // example 1 ---------
 // let counter = 0;
 
-// while (counter <= 10) {
+// while (counter < 10) {
 //   console.log("counter: ", counter);
 //   counter += 1;
 // }
@@ -661,19 +673,19 @@
 // BREAK полностью выходит из цикла
 // for (let i = 0; i < 10; i += 1) {
 //   if (i === 5) {
+//     console.log(i);
 //     console.log("Дошли до 5-й итерации, прерываем цикл!");
 //     break;
 //   }
 // }
 
 // CONTINUE только прерывает исполнение текущей итерации
-// const number = 10;
+const number = 10;
 
-// for (let i = 0; i < number; i += 1) {
-//   if (i % 2 === 0) {
-//     continue;
-//   }
+for (let i = 0; i < number; i += 1) {
+  if (i % 2 === 0) {
+    continue;
+  }
 
-//   console.log("Нечетное i: ", i); // 1, 3, 5, 7, 9
-// }
-
+  console.log("Нечетное i: ", i); // 1, 3, 5, 7, 9
+}
