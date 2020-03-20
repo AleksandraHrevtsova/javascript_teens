@@ -1,21 +1,55 @@
 "use strict";
-let total = 0;
-// 1
-// let input = Number(prompt("Введите число"));
+// На счету пользователя есть 23580 кредитов, значение хранится
+// в переменной credits (создай и присвой).
+// Пользователь решает купить ремонтных дроидов,
+// которые стоят по 3000 кредитов за штуку.
+// Цена одного дроида хранится в переменной pricePerDroid (создай и присвой).
+// При посещении страницы, используя prompt, необходимо
+// спросить количество дроидов которые пользователь хочет купить и
+// сохранить в переменную.
 
-// do {
-//   input = Number(prompt("Введите число"));
-//   total += input;
-//   console.log(total);
-// } while (input);
+// Напиши скрипт который:
 
-// console.log("total: ", total);
+// __MCE_ITEM____MCE_ITEM__·
+// Если в prompt была нажата кнопка Cancel,
+// выводит в консоль сообщение 'Отменено пользователем!'.
 
-// 2
-// let input = +prompt("Введите число");
-// while (input) {
-//   total += input;
-//   console.log(total);
-//   input = +prompt("Введите число");
+// __MCE_ITEM____MCE_ITEM__·
+// В противном случае, рассчитывает общую цену заказа и сохраняет в переменной totalPrice.
+
+// __MCE_ITEM____MCE_ITEM__·
+// Проверяет сможет ли пользователь оплатить заказ:
+
+// __MCE_ITEM__o
+// если сумма к оплате превышает количество кредитов на счету,
+// выводи в консоль сообщение 'Недостаточно средств на счету!'.
+
+// __MCE_ITEM__o
+// в противном случае необходимо посчитать остаток кредитов на счету и
+// вывести сообщение 'Вы купили [число] дроидов, на счету осталось [число] кредитов.'.
+
+// let credits = 23580;
+// let pricePerDroid = 3000;
+
+// let wantToBuy = prompt("Укажите количество дроидов");
+// let totalPrice;
+// // console.log(wantToBuy);
+
+// if (wantToBuy === null) {
+//   console.log("Отменено пользователем!");
+// } else {
+//   totalPrice = pricePerDroid * Number(wantToBuy);
+//   //   console.log(wantToBuy);
+//   //   console.log(totalPrice);
+//   if (totalPrice > credits) {
+//     console.log("Недостаточно средств на счету!");
+//   } else {
+//     console.log(
+//       `Вы купили ${wantToBuy} дроидов, на счету осталось ${credits -
+//         totalPrice} кредитов.`
+//     );
+//   }
 // }
-// console.log("total: ", total);
+
+// let count = Math.floor(credits / pricePerDroid);
+// console.log(count);

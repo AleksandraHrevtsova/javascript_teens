@@ -1,28 +1,27 @@
 "use strict";
-// let counrty;
-// let price = [100, 250, 170, 80, 120];
-// // China = 100;
-// // Chili = 250;
-// // Austalia = 170;
-// // India = 80;
-// // Jamaika = 120;
-// switch ((counrty = prompt(toCamelCase("Введи страну")))) {
-//   case "China":
-//     alert(`Доставка в ${counrty} будет стоить ${price[0]} кредитов`);
-//     break;
-//   case "Chili":
-//     alert(`Доставка в ${counrty} будет стоить ${price[1]} кредитов`);
-//     break;
-//   case "Austalia":
-//     alert(`Доставка в ${counrty} будет стоить ${price[2]} кредитов`);
-//     break;
-//   case "India":
-//     alert(`Доставка в ${counrty} будет стоить ${price[3]} кредитов`);
-//     break;
-//   case "Jamaika":
-//     alert(`Доставка в ${counrty} будет стоить ${price[4]} кредитов`);
-//     break;
+// Напиши скрипт имитирующий авторизацию администратора в панели управления.
+// Есть переменная message в которую будет записано сообщение о результате.
+// При загрузке страницы у посетителя запрашивается пароль через prompt:
+// __MCE_ITEM____MCE_ITEM__·
+// Если нажали Cancel, записать в message строку 'Отменено пользователем!'
+// __MCE_ITEM____MCE_ITEM__·
+// В протовном случае, если введен пароль который совпадает со значением
+// константы ADMIN_PASSWORD, записать в message строку 'Добро пожаловать!'
+// __MCE_ITEM____MCE_ITEM__·
+// В противном случае, то есть если ни одно из предыдущих условий не выполнилось,
+// записать в message строку 'Доступ запрещен, неверный пароль!'
+// __MCE_ITEM____MCE_ITEM__·
+// После всех проверок вывести в alert значение переменной message.
 
-//   default:
-//     alert(`В страну "${counrty}" достава не доступна :(`);
+// const ADMIN_PASSWORD = "jqueryismyjam";
+// let message = prompt("введите пароль");
+// // console.log(message);
+
+// if (message == null) {
+//   console.log("Отменено пользователем!");
+// } else if (message === ADMIN_PASSWORD) {
+//   console.log("Добро пожаловать!");
+// } else {
+//   console.log("Доступ запрещен, неверный пароль!");
 // }
+// alert(message);

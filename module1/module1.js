@@ -278,149 +278,148 @@
 
 // ============занятие 3========================
 
-// // ЛОГИЧЕСКИЕ ОПЕРАТОРЫ: &&, ||, !.
+// // // ЛОГИЧЕСКИЕ ОПЕРАТОРЫ: &&, ||, !.
 
-// ложные значения, приводящие к false
-// 0;
-console.log(Boolean(0)); // false
-console.log("0", typeof 0); // number
-// NaN;
-console.log(Boolean(NaN)); // false
-console.log("NaN", typeof NaN); // number
-// null;
-console.log(Boolean(null)); // false
-console.log("null", typeof null); // object
-// undefined;
-console.log(Boolean(undefined)); // false
-console.log("undefined", typeof undefined); // undefined
-// false;
-console.log(Boolean(false)); // false
-console.log("false", typeof false); // false
-// "" || "";
-console.log(Boolean("")); // false
-console.log("", typeof ""); // string
-// НО!
-console.log(Boolean(" ")); // true
-console.log(" ", typeof " "); // string
+// // ложные значения, приводящие к false
+// // 0;
+// console.log(Boolean(0)); // false
+// console.log("0", typeof 0); // number
+// // NaN;
+// console.log(Boolean(NaN)); // false
+// console.log("NaN", typeof NaN); // number
+// // null;
+// console.log(Boolean(null)); // false
+// console.log("null", typeof null); // object
+// // undefined;
+// console.log(Boolean(undefined)); // false
+// console.log("undefined", typeof undefined); // undefined
+// // false;
+// console.log(Boolean(false)); // false
+// console.log("false", typeof false); // false
+// // "" || "";
+// console.log(Boolean("")); // false
+// console.log("", typeof ""); // string
+// // НО!
+// console.log(Boolean(" ")); // true
+// console.log(" ", typeof " "); // string
 
-console.log(Number(false)); // 0
-console.log(Number(true)); // 1
+// console.log(Number(false)); // 0
+// console.log(Number(true)); // 1
 
-// все остальные к true
-console.log(Boolean("my name")); // true
-console.log(typeof "my name"); // string
+// // все остальные к true
+// console.log(Boolean("my name")); // true
+// console.log(typeof "my name"); // string
 
-// !!!!!!!!!!!!!!!!!!!!!!
-console.log(undefined == false); // false
-console.log(null == false); // false
-console.log(null == undefined); // true, почему object и undefined true?
-console.log(null === undefined); // false
-// !!!!!!!!!!!!!!!!!!!!!!
+// // !!!!!!!!!!!!!!!!!!!!!!
+// console.log(undefined == false); // false
+// console.log(null == false); // false
+// console.log(null == undefined); // true, почему object и undefined true?
+// console.log(null === undefined); // false
+// // !!!!!!!!!!!!!!!!!!!!!!
 
-// Это специальное правило языка.
-// Эти значения равны друг другу и не равны никаким другим значениям.
-// При использовании математических операторов и других операторов сравнения < > <= >=
-// Значения null/undefined преобразуются к числам:
-// null становится 0, а
-// undefined – NaN.
+// // Это специальное правило языка.
+// // Эти значения равны друг другу и не равны никаким другим значениям.
+// // При использовании математических операторов и других операторов сравнения < > <= >=
+// // Значения null/undefined преобразуются к числам:
+// // null становится 0, а
+// // undefined – NaN.
 
-// && вернет последнее true, если все операнды истинные
-const KPI = 30;
-const fact = KPI > 20 && KPI < 31;
-//               true && true;
-console.log(fact); // true
-console.log("cat" && "dog" && "parrot"); // parrot
-//           true && true && true
-// в остальных - false
-const fact2 = KPI > 20 && KPI < 29;
-//                true && false;
-console.log(fact2); // false
-console.log("cat" && false); // false
+// // && вернет последнее true, если все операнды истинные
+// const KPI = 30;
+// const fact = KPI > 20 && KPI < 31;
+// //               true && true;
+// console.log(fact); // true
+// console.log("cat" && "dog" && "parrot"); // parrot
+// //           true && true && true
+// // в остальных - false
+// const fact2 = KPI > 20 && KPI < 29;
+// //                true && false;
+// console.log(fact2); // false
+// console.log("cat" && false); // false
+// // если первый операнд false, остальные уже не вычисляются
+// const fact1 = KPI > 31 && KPI < 32;
+// //               false && true;
+// console.log(fact1); // false
+// console.log(false && "parrot"); // false
 
-// если первый операнд false, остальные уже не вычисляются
-const fact1 = KPI > 31 && KPI < 32;
-//               false && true;
-console.log(fact1); // false
-console.log(false && "parrot"); // false
+// // || вернет первый true, если хотя бы один операнд истинный
+// const age = 30;
+// const trueAge = age < 31 || age > 29;
+// //                  true || true;
+// console.log(trueAge); // true - оба истинные
+// console.log("cat" || "parrot"); // cat
+// //           true || true; // cat
+// // если первый операнд true, остальные уже не вычисляются
+// const trueAge1 = age < 31 || age > 32;
+// //                   true || false;
+// console.log(trueAge1); // true - только левый истинный
+// console.log("cat" || false); // cat
+// //           true || false; // cat
+// const trueAge2 = age < 29 || age > 27;
+// //                  false || true; // true
+// console.log(trueAge2); // true - только правый истинный
+// console.log(false || "parrot"); // parrot
 
-// || вернет первый true, если хотя бы один операнд истинный
-const age = 30;
-const trueAge = age < 31 || age > 29;
-//                  true || true;
-console.log(trueAge); // true - оба истинные
-console.log("cat" || "parrot"); // cat
-//           true || true; // cat
-// если первый операнд true, остальные уже не вычисляются
-const trueAge1 = age < 31 || age > 32;
-//                   true || false;
-console.log(trueAge1); // true - только левый истинный
-console.log("cat" || false); // cat
-//           true || false; // cat
-const trueAge2 = age < 29 || age > 27;
-//                  false || true; // true
-console.log(trueAge2); // true - только правый истинный
-console.log(false || "parrot"); // parrot
+// const trueAge3 = age < 29 || age > 31;
+// //                  false || false;
+// console.log(trueAge3); // false - оба ложные
 
-const trueAge3 = age < 29 || age > 31;
-//                  false || false;
-console.log(trueAge3); // false - оба ложные
+// // ! после приведения к булю, меняет его значение на противоположное
+// console.log(!true); // false
+// console.log(!false); // true
 
-// ! после приведения к булю, меняет его значение на противоположное
-console.log(!true); // false
-console.log(!false); // true
+// console.log(!1); // false
+// console.log(!!1); // true - двойное отрицание
 
-console.log(!1); // false
-console.log(!!1); // true - двойное отрицание
+// console.log(!0); // true
+// console.log(!!0); // false - двойное отрицание
 
-console.log(!0); // true
-console.log(!!0); // false - двойное отрицание
+// console.log(!"cat"); // false
 
-console.log(!"cat"); // false
+// // приоритет выполнения логических операторов
+// const quantity = 50;
 
-// приоритет выполнения логических операторов
-const quantity = 50;
+// // // && выше приоритет, чем у ||
+// console.log((false && true) || true); // true
+// //                  (false) || true
+// console.log(false && (true || true)); // false
+// //          false && (true); // false
+// // если || - true, то && НЕ вычисляется
+// console.log((quantity > 39 && quantity < 49) || quantity > 48); // true
+// //                           (true && false) || true; // true
+// //                                     false || true; // true
+// console.log((true && false) || "parrot"); // parrot
+// //                    false || parrot; // parrot
+// console.log((quantity > 51 && quantity < 53) || quantity > 48); // true
+// //                           (false && true) || true; // true
+// //                                     false || true; // true
+// console.log((quantity > 51 && quantity < 49) || quantity > 49); // true
+// //                            false && false || true; // true
+// //                                     false || true; // true
+// // если || - false, то && вычисляется
+// // при этом, если && тоже false - возвращается значение ||
+// // при этом, если && тоже true - возвращается значение &&
+// console.log((quantity > 51 && quantity < 51) || quantity > 52); // false
+// //                             false && true || false; // false
+// //                                     false || false; // false
+// console.log((quantity > 39 && quantity < 49) || quantity > 51); // false
+// //                             true && false || false; // false
+// //                                     false || false; // false
+// console.log((quantity > 39 && quantity > 49) || quantity > 51); // false
+// //                              true && true || false; // true
+// //                                      true || false; // true
+// console.log((quantity > 51 && quantity < 49) || quantity > 52); // false
+// //                            false && false || false; // false
+// //                                     false || false; // false
 
-// // && выше приоритет, чем у ||
-console.log((false && true) || true); // true
-//                  (false) || true
-console.log(false && (true || true)); // false
-//          false && (true); // false
-// если || - true, то && НЕ вычисляется
-console.log((quantity > 39 && quantity < 49) || quantity > 48); // true
-//                           (true && false) || true; // true
-//                                     false || true; // true
-console.log((true && false) || "parrot"); // parrot
-//                    false || parrot; // parrot
-console.log((quantity > 51 && quantity < 53) || quantity > 48); // true
-//                           (false && true) || true; // true
-//                                     false || true; // true
-console.log((quantity > 51 && quantity < 49) || quantity > 49); // true
-//                            false && false || true; // true
-//                                     false || true; // true
-// если || - false, то && вычисляется
-// при этом, если && тоже false - возвращается значение ||
-// при этом, если && тоже true - возвращается значение &&
-console.log((quantity > 51 && quantity < 51) || quantity > 52); // false
-//                             false && true || false; // false
-//                                     false || false; // false
-console.log((quantity > 39 && quantity < 49) || quantity > 51); // false
-//                             true && false || false; // false
-//                                     false || false; // false
-console.log((quantity > 39 && quantity > 49) || quantity > 51); // false
-//                              true && true || false; // true
-//                                      true || false; // true
-console.log((quantity > 51 && quantity < 49) || quantity > 52); // false
-//                            false && false || false; // false
-//                                     false || false; // false
-
-console.log((false && true) || NaN); // NaN
-//                    false || NaN; // NaN
-console.log((false && false) || NaN); // NaN
-//                     false || NaN; // NaN
-console.log((true && true) || NaN); // true
-//                    true || NaN; // true
-console.log(NaN || (true && true)); // true
-//          NaN || true; // true
+// console.log((false && true) || NaN); // NaN
+// //                    false || NaN; // NaN
+// console.log((false && false) || NaN); // NaN
+// //                     false || NaN; // NaN
+// console.log((true && true) || NaN); // true
+// //                    true || NaN; // true
+// console.log(NaN || (true && true)); // true
+// //          NaN || true; // true
 
 // ВЕТВЛЕНИЯ управляют потоком выполнения программы
 
@@ -679,13 +678,14 @@ console.log(NaN || (true && true)); // true
 //   }
 // }
 
-// CONTINUE только прерывает исполнение текущей итерации
-const number = 10;
+// // CONTINUE только прерывает исполнение текущей итерации
+// const number = 10;
 
-for (let i = 0; i < number; i += 1) {
-  if (i % 2 === 0) {
-    continue;
-  }
+// for (let i = 0; i < number; i += 1) {
+//   if (i % 2 === 0) {
+//     continue;
+//   }
 
-  console.log("Нечетное i: ", i); // 1, 3, 5, 7, 9
-}
+//   console.log("Нечетное i: ", i); // 1, 3, 5, 7, 9
+// }
+
