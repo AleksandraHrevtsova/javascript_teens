@@ -6,20 +6,20 @@
 // Austalia = 170;
 // India = 80;
 // Jamaika = 120;
-// switch ((country = prompt("Введи страну"))) {
-//   case "China":
+// switch (country = prompt("Введи страну").toLowerCase()) {
+//   case "china":
 //     alert(`Доставка в ${country} будет стоить ${price[0]} кредитов`);
 //     break;
-//   case "Chili":
+//   case "chili":
 //     alert(`Доставка в ${country} будет стоить ${price[1]} кредитов`);
 //     break;
-//   case "Austalia":
+//   case "austalia":
 //     alert(`Доставка в ${country} будет стоить ${price[2]} кредитов`);
 //     break;
-//   case "India":
+//   case "india":
 //     alert(`Доставка в ${country} будет стоить ${price[3]} кредитов`);
 //     break;
-//   case "Jamaika":
+//   case "jamaika":
 //     alert(`Доставка в ${country} будет стоить ${price[4]} кредитов`);
 //     break;
 

@@ -4,7 +4,6 @@
 // присвой им значения: 1, 0, true
 // выведи в консоль результаты сравнения:
 // var1 > var2
-// var1 > var2
 // var1 == var3
 // var1 === var3
 // var1 != var3
@@ -18,7 +17,6 @@
 // let var2 = 0;
 // let var3 = true;
 
-// console.log(var1 > var2); // true
 // console.log(var1 > var2); // true
 // console.log(var1 == var3); // true
 // console.log(var1 === var3); // false
@@ -40,15 +38,19 @@
 // val = "River";
 // console.log(isNaN(val)); // true
 // console.log(typeof val); // string
+
 // val = "Mountin";
 // console.log(isNaN(val)); // true
 // console.log(typeof val); // string
+
 // val = 232;
 // console.log(isNaN(val)); // false
 // console.log(typeof val); // number
+
 // val = true;
 // console.log(isNaN(val)); // false
 // console.log(typeof val); // boolean
+
 // val = null;
 // console.log(isNaN(val)); // false
 // console.log(typeof val); // object
@@ -83,4 +85,13 @@
 // пусть она принимает рандомное число от 3 до 19 включительно, с условием не больше 2х знаков после точки
 // выведи результат в консоль
 // let random = (Math.random() * (19 - 3) + 3).toFixed(2);
+// let random = Math.random() * (19 - 3) + 3;
+// console.log(random);
+
+// let random = 19 - 3 + 1;
+// console.log((Math.random() * random).toFixed(2));
+
+// console.log("TUSK_3.6");
+// let random = Math.random() * (19 - 3) + 3;
+// random = random.toFixed(2);
 // console.log(random);
