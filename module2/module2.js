@@ -81,11 +81,15 @@
 //   console.log(character);
 // }
 
-// BREAK & CONTINUE
+// // BREAK & CONTINUE
+
 // // найти совпадение или не совпадение и вывести сообщение об этом
+
+// // example 1
 // let studentName;
 // console.log("имя студента", studentName);
 // // studentName = prompt("Enter your name please");
+
 // const studentsNew = [
 //   "Roy",
 //   "Nick",
@@ -109,8 +113,8 @@
 //   "Bob"
 // ];
 // studentName = studentsNotNew[Math.floor(studentsNotNew.length * Math.random())];
-
-// console.log("имя студента", studentName);
+// console.log(studentName);
+// // console.log("имя студента", studentName);
 
 // let message;
 
@@ -122,12 +126,11 @@
 //   message = "Welcome in our database of unique names!";
 // }
 // console.log(`${studentName}, ${message}`);
-// console.log(message);
 
-// ==================== to fixed
-// const myCarsList = ["Land Rover", "WV", "Subaru"];
-// let myCar = myCarsList[Math.floor(myCarsList.length * Math.random())];
-// console.log("моя машина: ", myCar);
+// // example 2
+
+// let myCars = ["Land Rover", "WV", "Subaru"];
+// let myCar = myCars[Math.floor(myCars.length * Math.random())];
 
 // const worldCarsList = [
 //   "BMW",
@@ -143,21 +146,25 @@
 //   "Subaru"
 // ];
 
-// let message;
+// let msg;
 
-// for (let car of worldCarsList) {
-//   //   console.log(car);
+// for (const car of worldCarsList) {
 //   if (car === myCar) {
-//     message = "У меня не было еще такой машины! А жаль...";
+//     msg = "Оу, у меня была такая тачка!";
 //     break;
 //   }
-//   message = "Оу, у меня такая тачка!";
+//   msg = "У меня не было еще такой машины! А жаль...";
 // }
-// console.log(message);
-// ==================== to fixed
+// console.log(`${myCar}, ${msg}`);
 
-// continue
+// директива continue
+
+// example 1
+
 // const nums = [1, 5, 13, 45, 467, 99, 3, 23];
+// console.log(nums.length);
+// console.log(nums[0]);
+
 // const numMore = 34;
 
 // for (let i = 0; i < nums.length; i += 1) {
@@ -167,13 +174,26 @@
 //   console.log(`This number is more then ${numMore}: ${nums[i]}`);
 // }
 
-// // многомерные массивы
+// example 2
+
+// const test1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+// const minLevel = 12;
+
+// for (let i = 0; i < test1.length; i += 1) {
+//   if (test1[i] < minLevel) {
+//     continue;
+//   }
+//   console.log(`student: `, test1[i]);
+// }
+
+// МНОГОМЕРНЫЕ МАССИВЫ
+
 // const matrix = [
-//   [1, 2, 3], // [0]
+//   [1, 2, 3, 4], // [0]
 //   [11, 22, 33], // [1]
 //   [111, 222, 333] // [2]
 // ];
-
+// console.log(matrix);
 // console.log(matrix[0][0]); // 1
 // console.log(matrix[0][1]); // 2
 // console.log(matrix[0][2]); // 3
@@ -199,6 +219,7 @@
 // console.log(total);
 
 // ============== занятие 2 ========
+
 // присвоение по значению
 // let a = 5;
 // let b = a;
