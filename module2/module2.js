@@ -50,6 +50,16 @@
 //   console.log("students item: ", students[i]);
 // }
 
+// ЦИКЛ СО СЧЕТЧИКОМ, МОЖНО УКАЗАТЬ ШАГ, СКОЛЬКО СТУПЕНЕК ПЕРЕСТУПАЕМ
+// for (С какого эл-та перебор; ДО какого эл-та (условие); с каким шагом (каждый 1й, 2й, 3й ...)) {
+
+// }
+
+// ЦИКЛ, перебирающий каждый элемент массива, наступает на каждую ступень с самого начала до самого конца
+// for (ПРОСИТ ОБОЗВАТЬ ЭЛЕМЕНТ МАССИВ of УКАЖИ САМ МАССИВ) {
+
+// }
+
 // // заполнение данными
 // for (let i = 0; i <= 6; i += 2) {
 //   students.push(`The best student - ${i}`);
@@ -129,33 +139,34 @@
 
 // // example 2
 
-// let myCars = ["Land Rover", "WV", "Subaru"];
-// let myCar = myCars[Math.floor(myCars.length * Math.random())];
+let myCars = ["Land Rover", "WV", "Subaru"];
+let myCar = myCars[Math.floor(myCars.length * Math.random())];
 
-// const worldCarsList = [
-//   "BMW",
-//   "Toyota",
-//   "Mersedes",
-//   "Porshe",
-//   "Audi",
-//   "Lexus",
-//   "Honda",
-//   "Mazda",
-//   "Land Rover",
-//   "Nissan",
-//   "Subaru"
-// ];
+const worldCarsList = [
+  "BMW",
+  "Toyota",
+  "Mersedes",
+  "Porshe",
+  "Audi",
+  "Lexus",
+  "Honda",
+  "Mazda",
+  "Land Rover",
+  "Nissan",
+  "Subaru"
+];
 
-// let msg;
+let msg;
 
-// for (const car of worldCarsList) {
-//   if (car === myCar) {
-//     msg = "Оу, у меня была такая тачка!";
-//     break;
-//   }
-//   msg = "У меня не было еще такой машины! А жаль...";
-// }
-// console.log(`${myCar}, ${msg}`);
+for (const car of worldCarsList) {
+  if (car === myCar) {
+    console.log(car);
+    msg = "Оу, у меня была такая тачка!";
+    break;
+  }
+  msg = "У меня не было еще такой машины! А жаль...";
+}
+console.log(`${myCar}, ${msg}`);
 
 // директива continue
 
@@ -188,39 +199,40 @@
 
 // МНОГОМЕРНЫЕ МАССИВЫ
 
-// const matrix = [
-//   [1, 2, 3, 4], // [0]
-//   [11, 22, 33], // [1]
-//   [111, 222, 333] // [2]
+// const house = [
+//   [0.1, 0.2, 0.3], // [0]
+//   [1.1, 1.2, 1.3], // [1]
+//   [2.1, 2.2, 2.3] // [2]
 // ];
-// console.log(matrix);
-// console.log(matrix[0][0]); // 1
-// console.log(matrix[0][1]); // 2
-// console.log(matrix[0][2]); // 3
+// console.log(house);
 
-// console.log(matrix[1][0]); // 11
-// console.log(matrix[1][1]); // 22
-// console.log(matrix[1][2]); // 33
+// console.log(house[0][0]); // 1
+// console.log(house[0][1]); // 2
+// console.log(house[0][2]); // 3
 
-// console.log(matrix[2][0]); // 111
-// console.log(matrix[2][1]); // 222
-// console.log(matrix[2][2]); // 333
+// console.log(house[1][0]); // 11
+// console.log(house[1][1]); // 22
+// console.log(house[1][2]); // 33
+
+// console.log(house[2][0]); // 111
+// console.log(house[2][1]); // 222
+// console.log(house[2][2]); // 333
 
 // // вложенные циклы для перебора вложенных массивов
 // let total = 0;
 
-// for (let i = 0; i < matrix.length; i += 1) {
-//   console.log("Вложенный массив ", matrix[i]);
-//   for (let j = 0; j < matrix.length; j += 1) {
-//     console.log("Элемент вложенного массива", matrix[i][j]);
-//     total += matrix[i][j];
+// for (let i = 0; i < house.length; i += 1) {
+//   console.log("Вложенный массив ", house[i]);
+//   for (let j = 0; j < house.length; j += 1) {
+//     console.log("Элемент вложенного массива", house[i][j]);
+//     // total += house[i][j];
 //   }
 // }
-// console.log(total);
+// // console.log(total);
 
 // ============== занятие 2 ========
 
-// присвоение по значению
+// // присвоение по значению (для примитивов)
 // let a = 5;
 // let b = a;
 // console.log(a); // 5
@@ -230,12 +242,15 @@
 // console.log(a); // 10
 // console.log(b); // 5
 
-// // присвоение по значению
+// // присвоение по ссылке (для сложных типов)
 // const units = ["alfa", "beta", "gamma"];
 // const newUnits = units;
 
 // console.log(units); // ["alfa", "beta", "gamma"]
 // console.log(newUnits); // ["alfa", "beta", "gamma"]
+
+// // МЕТОДЫ МАССИВОВ
+// // Добавление элементов
 // // .push() добавляет новый эл-т в конец массива
 // units.push("delta");
 // console.log(units); // ["alfa", "beta", "gamma", "delta"]
@@ -244,6 +259,8 @@
 // newUnits.unshift("epsilon");
 // console.log(newUnits); // ["epsilon", "alfa", "beta", "gamma", "delta"]
 // console.log(newUnits); // ["epsilon", "alfa", "beta", "gamma", "delta"]
+
+// // Удаление элементов
 // // .pop() удаляет последний эл-т из массива
 // units.pop("");
 // console.log(units); // ["epsilon", "alfa", "beta", "gamma"]
@@ -252,57 +269,36 @@
 // newUnits.shift([0]);
 // console.log(newUnits); // ["alfa", "beta", "gamma"]
 // console.log(newUnits); // ["alfa", "beta", "gamma"]
+
+// // СОБРАТЬ ЭЛЕМЕНТЫ
 // // .join() массив в строку
 // console.log(units.join("")); // alfabetagamma
 // console.log(units.join(", ")); // alfa, beta, gamma
 // console.log(units.join("-")); // alfa-beta-gamma
+
+// // РАЗБИТЬ ЭЛЕМЕНТЫ
 // // .split() строку в массив
 // const msg = "Welocome to my world!";
 // console.log(msg.split(" ")); //  ["Welocome", "to", "my", "world!"]
 // console.log(msg.split("")); //  ["W", "e", "l", "o", "c", "o", "m", "e", " ", "t", "o", " ", "m", "y", " ", "w", "o", "r", "l", "d", "!"]
+
+// // НАЙТИ ЭЛЕМЕНТЫ
+// // по индексу
+
 // // .indexOf() индекс элемента, если он есть в массиве, иначе -1
 // console.log(units.indexOf("beta")); // 0
 // console.log(units.indexOf("ddd")); // -1
+
+// // по наличию
+
 // // .includes() указывает наличие или отсутствие элемента в массиве
 // console.log(msg.includes("to")); // true
 // console.log(msg.includes("WORLD")); // false
 // console.log(msg.includes("world")); // true
 // console.log(msg.includes("!")); // true
 // console.log(msg.includes("t")); // true
-// .slice(a, b) копирует эл-ы от a до b, не включая b в новый массив
-// const numList = [0, 1, 2, 3, 4, 5, 6, 7];
-// console.log(numList.slice(0, 3)); // [0, 1, 2]
-// console.log(numList.slice(1, 2)); // [1]
-// console.log(numList.slice(1, 5)); // [1, 2, 3, 4]
-// console.log(numList.slice(1)); // [1, 2, 3, 4, 5, 6, 7]
-// console.log(numList.slice(3)); // [3, 4, 5, 6, 7]
-// console.log(numList.slice()); // [0, 1, 2, 3, 4, 5, 6, 7]
-// console.log(numList.slice(-1)); // [7]
-// console.log(numList.slice(-2)); // [6, 7]
-// console.log(numList.slice(-3)); // [5, 6, 7]
-// .splice() изменяет исходный массив
-// удаляет (нач.поз-я, кол-во эл-ов)
-// console.log(numList); // [0, 1, 2, 3, 4, 5, 6, 7]
-// console.log(numList.splice(0, 2)); // [0б 1] удаленные элементы
-// console.log(numList); // [2, 3, 4, 5, 6, 7] измененный массив
-// вставляет (нач.поз-я, 0, el1, el2, ...)
-// console.log(numList.splice(0, 0, 1)); // []
-// console.log(numList); // [1, 2, 3, 4, 5, 6, 7] еще раз измененный массив
-// console.log(numList.splice(7, 0, 8, 9)); // []
-// console.log(numList); // [1, 2, 3, 4, 5, 6, 7, 8, 9] и еще раз измененный массив
-// console.log(numList.splice(3, 0, 9889)); // []
-// console.log(numList); // [1, 2, 3, 9889, 4, 5, 6, 7, 8, 9] и еще разок измененный массив
-// заменяет
-// console.log(numList.splice(3, 1, "Js")); // [9889]
-// console.log(numList); // [1, 2, 3, "Js", 4, 5, 6, 7, 8, 9] снова измененный массив
-// console.log(numList.splice(3, 3, "Js")); // ["Js", 4, 5]
-// console.log(numList); // [1, 2, 3, "Js", 6, 7, 8, 9] и снова измененный массив
-// .concat()
-// const arr1 = ["Hello"];
-// const arr2 = ["World!"];
-// const lang = arr1.concat(arr2);
-// console.log(lang.join(", "));
-// проверка множества условий
+
+// // проверка множества условий
 // const fruit = "apple";
 // if (fruit === "apple" || fruit === "strawberry") {
 //   console.log("it`s a red fruit");
@@ -317,4 +313,92 @@
 //   console.log("it`s not a red fruit");
 // }
 
-// FUNCTIONS
+// // СКОПИРОВАТЬ МАССИВ
+// .slice(a, b) копирует эл-ы от a до b, не включая b в новый массив
+// const numList = [0, 1, 2, 3, 4, 5, 6, 7];
+// console.log(numList.slice(0, 3)); // [0, 1, 2]
+// console.log(numList.slice(1, 2)); // [1]
+// console.log(numList.slice(1, 5)); // [1, 2, 3, 4]
+// console.log(numList.slice(1)); // [1, 2, 3, 4, 5, 6, 7]
+// console.log(numList.slice(3)); // [3, 4, 5, 6, 7]
+// console.log(numList.slice()); // [0, 1, 2, 3, 4, 5, 6, 7]
+// console.log(numList.slice(-1)); // [7]
+// console.log(numList.slice(-2)); // [6, 7]
+// console.log(numList.slice(-3)); // [5, 6, 7]
+
+// // ШВЕЙЦАРСКИЙ НОЖ
+// // .splice() изменяет исходный массив
+
+// // удаляет (нач.поз-я, кол-во эл-ов)
+// console.log(numList); // [0, 1, 2, 3, 4, 5, 6, 7]
+// console.log(numList.splice(0, 2)); // [0, 1] удаленные элементы
+// console.log(numList); // [2, 3, 4, 5, 6, 7] измененный массив
+
+// // вставляет (нач.поз-я, 0, el1, el2, ...)
+// console.log(numList.splice(0, 0, 1)); // []
+// console.log(numList); // [1, 2, 3, 4, 5, 6, 7] еще раз измененный массив
+// console.log(numList.splice(7, 0, 8, 9)); // []
+// console.log(numList); // [1, 2, 3, 4, 5, 6, 7, 8, 9] и еще раз измененный массив
+// console.log(numList.splice(3, 0, 9889)); // []
+// console.log(numList); // [1, 2, 3, 9889, 4, 5, 6, 7, 8, 9] и еще разок измененный массив
+
+// // заменяет
+// console.log(numList.splice(3, 1, "Js")); // [9889]
+// console.log(numList); // [1, 2, 3, "Js", 4, 5, 6, 7, 8, 9] снова измененный массив
+// console.log(numList.splice(3, 3, "Js")); // ["Js", 4, 5]
+// console.log(numList); // [1, 2, 3, "Js", 6, 7, 8, 9] и снова измененный массив
+
+// // ОБЪЕДИНЕНИЕ МАССИВОВ
+// // .concat()
+// const arr1 = ["Hello"];
+// const arr2 = ["World!"];
+// const lang = arr1.concat(arr2);
+// console.log(lang.join(", "));
+
+// // FUNCTIONS
+
+// // function expression (with variable)
+
+// объявление функции
+// //              (parametres)
+const add = function(a, b, c) {
+  return a + b + c;
+};
+
+// // вызов функции
+// //            (arguments)
+const result = add(1, 2, 3);
+console.log(result); // 6
+
+console.log(add(5, 10, 15)); // 30
+
+// // ПОРЯДОК ВЫПОЛНЕНИЯ КОДА
+// // объявление
+const fn1 = function() {
+  console.log("1я функция начала выполняться");
+  // // вызов
+  fn2();
+  console.log("Продолжение выполнения 1й функции после выхода из 2й функции");
+};
+const fn2 = function() {
+  console.log("Выполняется 2я функция");
+};
+
+// // вызов
+console.log("Начато выполнение основного кода");
+fn1();
+console.log("Продолжение выполнения основного кода после выхода из 1й функции");
+
+// // парметры по умолчанию
+
+const count = function(countFrom = 0, countTo = 10, step = 1) {
+  console.log(`countFrom = ${countFrom}, countTo = ${countTo}, step = ${step}`);
+
+  for (let i = countFrom; i <= countTo; i += step) {
+    console.log(i);
+  }
+};
+count(1, 5); // countFrom = 1, countTo = 5, step = 1
+count(2); // countFrom = 2, countTo = 10, step = 1
+count(undefined, 5, 2); // countFrom = 0, countTo = 5, step = 2
+count(); // countFrom = 0, countTo = 10, step = 1
