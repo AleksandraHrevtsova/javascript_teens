@@ -139,34 +139,34 @@
 
 // // example 2
 
-let myCars = ["Land Rover", "WV", "Subaru"];
-let myCar = myCars[Math.floor(myCars.length * Math.random())];
+// let myCars = ["Land Rover", "WV", "Subaru"];
+// let myCar = myCars[Math.floor(myCars.length * Math.random())];
 
-const worldCarsList = [
-  "BMW",
-  "Toyota",
-  "Mersedes",
-  "Porshe",
-  "Audi",
-  "Lexus",
-  "Honda",
-  "Mazda",
-  "Land Rover",
-  "Nissan",
-  "Subaru"
-];
+// const worldCarsList = [
+//   "BMW",
+//   "Toyota",
+//   "Mersedes",
+//   "Porshe",
+//   "Audi",
+//   "Lexus",
+//   "Honda",
+//   "Mazda",
+//   "Land Rover",
+//   "Nissan",
+//   "Subaru"
+// ];
 
-let msg;
+// let msg;
 
-for (const car of worldCarsList) {
-  if (car === myCar) {
-    console.log(car);
-    msg = "Оу, у меня была такая тачка!";
-    break;
-  }
-  msg = "У меня не было еще такой машины! А жаль...";
-}
-console.log(`${myCar}, ${msg}`);
+// for (const car of worldCarsList) {
+//   if (car === myCar) {
+//     console.log(car);
+//     msg = "Оу, у меня была такая тачка!";
+//     break;
+//   }
+//   msg = "У меня не было еще такой машины! А жаль...";
+// }
+// console.log(`${myCar}, ${msg}`);
 
 // директива continue
 
@@ -233,6 +233,7 @@ console.log(`${myCar}, ${msg}`);
 // ============== занятие 2 ========
 
 // // присвоение по значению (для примитивов)
+// // ex 1
 // let a = 5;
 // let b = a;
 // console.log(a); // 5
@@ -242,65 +243,95 @@ console.log(`${myCar}, ${msg}`);
 // console.log(a); // 10
 // console.log(b); // 5
 
+// // ex 2
+// let lastName = "Hrevtsova";
+// let newLastName = lastName;
+
+// console.log(lastName);
+// console.log(newLastName);
+
+// lastName = "Boreikina";
+// console.log(lastName);
+// console.log(newLastName);
+
 // // присвоение по ссылке (для сложных типов)
-// const units = ["alfa", "beta", "gamma"];
-// const newUnits = units;
+const units = ["alfa", "beta", "gamma"];
+const newUnits = units;
 
-// console.log(units); // ["alfa", "beta", "gamma"]
-// console.log(newUnits); // ["alfa", "beta", "gamma"]
+console.log("units", units); // ["alfa", "beta", "gamma"]
+console.log("newUnits", newUnits); // ["alfa", "beta", "gamma"]
 
-// // МЕТОДЫ МАССИВОВ
-// // Добавление элементов
-// // .push() добавляет новый эл-т в конец массива
-// units.push("delta");
-// console.log(units); // ["alfa", "beta", "gamma", "delta"]
-// console.log(newUnits); // ["alfa", "beta", "gamma", "delta"]
-// // .unshift() добавляет новый эл-т в начало массива
-// newUnits.unshift("epsilon");
-// console.log(newUnits); // ["epsilon", "alfa", "beta", "gamma", "delta"]
-// console.log(newUnits); // ["epsilon", "alfa", "beta", "gamma", "delta"]
+units[0] = "1";
+console.log("units", units); // ["1", "beta", "gamma"];
+console.log("newUnits", newUnits); // ["1", "beta", "gamma"]
 
-// // Удаление элементов
-// // .pop() удаляет последний эл-т из массива
-// units.pop("");
-// console.log(units); // ["epsilon", "alfa", "beta", "gamma"]
-// console.log(newUnits); // ["epsilon", "alfa", "beta", "gamma"]
-// // .shift() удаляет первый [0] эл-т из массива
-// newUnits.shift([0]);
-// console.log(newUnits); // ["alfa", "beta", "gamma"]
-// console.log(newUnits); // ["alfa", "beta", "gamma"]
+// МЕТОДЫ МАССИВОВ
 
-// // СОБРАТЬ ЭЛЕМЕНТЫ
-// // .join() массив в строку
-// console.log(units.join("")); // alfabetagamma
-// console.log(units.join(", ")); // alfa, beta, gamma
-// console.log(units.join("-")); // alfa-beta-gamma
+// Добавление элементов
 
-// // РАЗБИТЬ ЭЛЕМЕНТЫ
-// // .split() строку в массив
-// const msg = "Welocome to my world!";
-// console.log(msg.split(" ")); //  ["Welocome", "to", "my", "world!"]
-// console.log(msg.split("")); //  ["W", "e", "l", "o", "c", "o", "m", "e", " ", "t", "o", " ", "m", "y", " ", "w", "o", "r", "l", "d", "!"]
+// .push() добавляет новый эл-т в конец массива
+units.push("delta");
+console.log("units", units); // ["1", "beta", "gamma", "delta"]
+console.log("newUnits", newUnits); // ["1", "beta", "gamma", "delta"]
 
-// // НАЙТИ ЭЛЕМЕНТЫ
-// // по индексу
+// .unshift() добавляет новый эл-т в начало массива
+newUnits.unshift("epsilon");
+console.log("newUnits", newUnits); // ["epsilon", "1", "beta", "gamma", "delta"]
+console.log("units", units); // ["epsilon", "1", "beta", "gamma", "delta"]
 
-// // .indexOf() индекс элемента, если он есть в массиве, иначе -1
-// console.log(units.indexOf("beta")); // 0
-// console.log(units.indexOf("ddd")); // -1
+// Удаление элементов
+// .pop() удаляет последний эл-т из массива
+units.pop();
+console.log("units", units); // ["epsilon", "1", "beta", "gamma"]
+console.log("newUnits", newUnits); // ["epsilon", "1", "beta", "gamma"]
 
-// // по наличию
+newUnits.pop();
+console.log("newUnits", newUnits); // ["epsilon", "1", "beta"]
+console.log("units", units); // ["epsilon", "1", "beta"]
 
-// // .includes() указывает наличие или отсутствие элемента в массиве
-// console.log(msg.includes("to")); // true
-// console.log(msg.includes("WORLD")); // false
-// console.log(msg.includes("world")); // true
-// console.log(msg.includes("!")); // true
-// console.log(msg.includes("t")); // true
+// .shift() удаляет первый, с индексом [0], эл-т из массива
+units.shift();
+console.log("units", units); // ["1", "beta"]
+console.log("newUnits", newUnits); // ["1", "beta"]
+
+// СОБРАТЬ ЭЛЕМЕНТЫ
+// .join() массив в строку
+console.log(units.join("")); // 1beta
+console.log(units.join(", ")); // 1, beta
+console.log(units.join("-")); // 1-beta
+console.log(units.join(" - ")); // 1 - beta
+console.log(units.join("x")); // 1xbeta
+
+// РАЗБИТЬ ЭЛЕМЕНТЫ
+// .split() строку в массив
+const msg = "Welcome to my world!";
+console.log(msg.split(" ")); //  ["Welcome", "to", "my", "world!"]
+console.log(msg.split("m")); // ["Welco", "e to ", "y world!"]
+console.log(msg.split("")); //  ["W", "e", "l", "c", "o", "m", "e", " ", "t", "o", " ", "m", "y", " ", "w", "o", "r", "l", "d", "!"]
+
+const msg1 = "Welcome,to,my,world!";
+console.log(msg1.split(",")); // ["Welcome", "to", "my", "world!"]
+
+// НАЙТИ ЭЛЕМЕНТЫ
+
+// по индексу
+
+// .indexOf() индекс элемента, если он есть в массиве, иначе -1
+console.log(units.indexOf("beta")); // 1
+console.log(units.indexOf("b")); // -1
+
+// по наличию
+
+// .includes() указывает наличие или отсутствие элемента в массиве
+console.log(msg.includes("to")); // true
+console.log(msg.includes("WORLD")); // false
+console.log(msg.includes("world")); // true
+console.log(msg.includes("!")); // true
+console.log(msg.includes("t")); // true
 
 // // проверка множества условий
-// const fruit = "apple";
-// if (fruit === "apple" || fruit === "strawberry") {
+// const fruit1 = "apple";
+// if (fruit1 === "apple" || fruit1 === "strawberry") {
 //   console.log("it`s a red fruit");
 // }
 
@@ -313,40 +344,87 @@ console.log(`${myCar}, ${msg}`);
 //   console.log("it`s not a red fruit");
 // }
 
-// // СКОПИРОВАТЬ МАССИВ
-// .slice(a, b) копирует эл-ы от a до b, не включая b в новый массив
-// const numList = [0, 1, 2, 3, 4, 5, 6, 7];
-// console.log(numList.slice(0, 3)); // [0, 1, 2]
-// console.log(numList.slice(1, 2)); // [1]
-// console.log(numList.slice(1, 5)); // [1, 2, 3, 4]
-// console.log(numList.slice(1)); // [1, 2, 3, 4, 5, 6, 7]
-// console.log(numList.slice(3)); // [3, 4, 5, 6, 7]
-// console.log(numList.slice()); // [0, 1, 2, 3, 4, 5, 6, 7]
-// console.log(numList.slice(-1)); // [7]
-// console.log(numList.slice(-2)); // [6, 7]
-// console.log(numList.slice(-3)); // [5, 6, 7]
+// СКОПИРОВАТЬ МАССИВ
+// .slice(a, b) копирует эл-ы от a до b, не включая b в - НОВЫЙ МАССИВ
+const numList = [0, 1, 2, 3, 4, 5, 6, 7]; // исходный массив
+// ===== если передаем два параметра
+// (1 - с какого индекса начинаем; 2 - до какого (не включительно) копируем)
+let sliceList = numList.slice(0, 3);
+console.log(sliceList); // [0, 1, 2] - НОВЫЙ МАССИВ
 
-// // ШВЕЙЦАРСКИЙ НОЖ
-// // .splice() изменяет исходный массив
+sliceList = numList.slice(1, 2);
+console.log(sliceList); // [1] - НОВЫЙ МАССИВ
 
-// // удаляет (нач.поз-я, кол-во эл-ов)
-// console.log(numList); // [0, 1, 2, 3, 4, 5, 6, 7]
-// console.log(numList.splice(0, 2)); // [0, 1] удаленные элементы
-// console.log(numList); // [2, 3, 4, 5, 6, 7] измененный массив
+sliceList = numList.slice(1, 5);
+console.log(sliceList); // [1, 2, 3, 4] - НОВЫЙ МАССИВ
 
-// // вставляет (нач.поз-я, 0, el1, el2, ...)
-// console.log(numList.splice(0, 0, 1)); // []
-// console.log(numList); // [1, 2, 3, 4, 5, 6, 7] еще раз измененный массив
-// console.log(numList.splice(7, 0, 8, 9)); // []
-// console.log(numList); // [1, 2, 3, 4, 5, 6, 7, 8, 9] и еще раз измененный массив
-// console.log(numList.splice(3, 0, 9889)); // []
-// console.log(numList); // [1, 2, 3, 9889, 4, 5, 6, 7, 8, 9] и еще разок измененный массив
+sliceList = numList.slice(2, 4);
+console.log(sliceList); // [2, 3] - НОВЫЙ МАССИВ
 
-// // заменяет
-// console.log(numList.splice(3, 1, "Js")); // [9889]
-// console.log(numList); // [1, 2, 3, "Js", 4, 5, 6, 7, 8, 9] снова измененный массив
-// console.log(numList.splice(3, 3, "Js")); // ["Js", 4, 5]
-// console.log(numList); // [1, 2, 3, "Js", 6, 7, 8, 9] и снова измененный массив
+// ===== если передаем 1 параметр, то он расценивается методом,
+// как 1 - с какого индекса начинаем; а вторым считается по умолчанию - последний элемент исходного массива
+sliceList = numList.slice(1);
+console.log(sliceList); // [1, 2, 3, 4, 5, 6, 7] - НОВЫЙ МАССИВ
+
+sliceList = numList.slice(3);
+console.log(sliceList); // [3, 4, 5, 6, 7] - НОВЫЙ МАССИВ
+
+sliceList = numList.slice(4);
+console.log(sliceList); // [4, 5, 6, 7] - НОВЫЙ МАССИВ
+
+// ===== если не указать параменты в методе вообще,
+// то будет скопирован полностью весь массив и создан новый массив, идентичный исходному
+console.log("numList", numList.slice()); // [0, 1, 2, 3, 4, 5, 6, 7]
+
+// ===== если указать отрицательное значение параметра, то
+// в новый массив запишется то количество элементов исходного массива С КОНЦА,
+// сколько указано в параметре отрицательного значения
+console.log("numList", numList.slice(-1)); // [7]
+console.log("numList", numList.slice(-2)); // [6, 7]
+console.log("numList", numList.slice(-3)); // [5, 6, 7]
+// (т.е. число указывает на кол-во элементов,
+// а знак "-" на то, что эти элементы копируем с конца исходного массива)
+const newNumList = numList.slice(-4);
+console.log("newNumList", newNumList);
+
+// ШВЕЙЦАРСКИЙ НОЖ
+// .splice() изменяет исходный массив
+
+// удаляет/вырезает (начальный индекс, кол-во эл-ов)
+console.log("numList", numList); // [0, 1, 2, 3, 4, 5, 6, 7] - исходный массив
+
+let spliceArr = numList.splice(0, 2);
+console.log("spliceArr", spliceArr); // [0, 1] - НОВЫЙ МАССИВ из удаленных элементов
+console.log("numList", numList); // [2, 3, 4, 5, 6, 7] - измененный исходный массив
+
+// // вставляет (начальный индекс, всегда 0, el1, el2, ...)
+spliceArr = numList.splice(0, 0, 1);
+console.log("spliceArr", spliceArr); // [] - ничего не записалось, новый массив не создается
+console.log("numList", numList); // [1, 2, 3, 4, 5, 6, 7] - еще раз измененный исходный массив
+
+spliceArr = numList.splice(7, 0, "8", "9");
+console.log("spliceArr", spliceArr); // [] - ничего не записалось, новый массив не создается
+console.log("numList", numList); // [1, 2, 3, 4, 5, 6, 7, "8", "9"] - и еще раз измененный исходный массив
+
+spliceArr = numList.splice(3, 0, 9889);
+console.log("spliceArr", spliceArr); // [] - ничего не записалось, новый массив не создается
+console.log("numList", numList); // [1, 2, 3, 9889, 4, 5, 6, 7, "8", "9"] и еще разок измененный массив
+
+console.log(numList.splice(4, 0, "a")); // [] - ничего не записалось, новый массив не создается
+console.log("numList", numList); // [1, 2, 3, 9889, "a", 4, 5, 6, 7, "8", "9"] - и угадайте, что? да-да, изменился исходный массив!
+
+// заменяет
+spliceArr = numList.splice(3, 1, "Js");
+console.log("spliceArr", spliceArr); // [9889] - НОВЫЙ МАССИВ из удаленного элемента вследствии его замены
+console.log("numList", numList); // [1, 2, 3, "Js", "a", 4, 5, 6, 7, "8", "9"] - измененный исходный массив
+
+spliceArr = numList.splice(3, 3, "ALFA");
+console.log("spliceArr", spliceArr); // ["Js", "а", 5] - НОВЫЙ МАССИВ из удаленных элементов вследствии их замены
+console.log("numList", numList); // [1, 2, 3, "ALFA", 5, 6, 7, "8", "9"] - измененный исходный массив
+
+spliceArr = numList.splice(3, 3, "BETA", "GAMMA");
+console.log("spliceArr", spliceArr); // ["ALFA", 5, 6] - НОВЫЙ МАССИВ из удаленных элементов вследствии их замены
+console.log("numList", numList); // [1, 2, 3, "BETA", "GAMMA", 7, "8", "9"] и снова измененный массив
 
 // // ОБЪЕДИНЕНИЕ МАССИВОВ
 // // .concat()
@@ -355,50 +433,59 @@ console.log(`${myCar}, ${msg}`);
 // const lang = arr1.concat(arr2);
 // console.log(lang.join(", "));
 
-// // FUNCTIONS
+// const test1 = ["1", 4, 12, 6, 16, 13, 8, 13, 4, 15, 11, 14, 10, 15, 12];
+// const test2 = ["2", 17, 13, 4, 15, 10, 12, 16, 21, 13, 8, 14, 18, 15, 20];
+// const test3 = ["3", 20, 12, 16, 22, 13, 8, 13, 4, 15, 10, 14, 18, 15, 22];
 
-// // function expression (with variable)
+// const allTests = test1.concat(test2).concat(test3);
+// console.log(allTests);
 
-// объявление функции
-// //              (parametres)
-const add = function(a, b, c) {
-  return a + b + c;
-};
+// FUNCTIONS
+
+// function expression (with variable)
+
+// // объявление функции
+// //                 (parametres)
+// const add = function(a, b, c) {
+//   return a + b + c;
+// };
 
 // // вызов функции
-// //            (arguments)
-const result = add(1, 2, 3);
-console.log(result); // 6
+// //               (arguments)
+// const result = add(1, 2, 3);
+// console.log(result); // 6
 
-console.log(add(5, 10, 15)); // 30
+// console.log(add(5, 10, 15)); // 30
+// console.log(add(299, 14, 121)); // 434
 
 // // ПОРЯДОК ВЫПОЛНЕНИЯ КОДА
 // // объявление
-const fn1 = function() {
-  console.log("1я функция начала выполняться");
-  // // вызов
-  fn2();
-  console.log("Продолжение выполнения 1й функции после выхода из 2й функции");
-};
-const fn2 = function() {
-  console.log("Выполняется 2я функция");
-};
+// const fn1 = function() {
+//   console.log("1я функция начала выполняться"); // 2.1 - done
+//   // // вызов
+//   fn2(); // DONE
+//   console.log("Продолжение выполнения 1й функции после выхода из 2й функции"); // 2.3 - done
+// };
+
+// const fn2 = function() {
+//   console.log("Выполняется 2я функция"); // 2.2 - done
+// };
 
 // // вызов
-console.log("Начато выполнение основного кода");
-fn1();
-console.log("Продолжение выполнения основного кода после выхода из 1й функции");
+// console.log("Начато выполнение основного кода"); // 1 - done
+// fn1(); // 2 - done
+// console.log("Продолжение выполнения основного кода после выхода из 1й функции"); // 3 -done
 
-// // парметры по умолчанию
+// // параметры по умолчанию
+// const count = function(a = 0, b = 10, c = 1) {
+//   console.log(`countFrom = ${a}, countTo = ${b}, step = ${c}`);
 
-const count = function(countFrom = 0, countTo = 10, step = 1) {
-  console.log(`countFrom = ${countFrom}, countTo = ${countTo}, step = ${step}`);
+//   for (let i = a; i <= b; i += c) {
+//     console.log(i);
+//   }
+// };
 
-  for (let i = countFrom; i <= countTo; i += step) {
-    console.log(i);
-  }
-};
-count(1, 5); // countFrom = 1, countTo = 5, step = 1
-count(2); // countFrom = 2, countTo = 10, step = 1
-count(undefined, 5, 2); // countFrom = 0, countTo = 5, step = 2
-count(); // countFrom = 0, countTo = 10, step = 1
+// count(1, 5); // a = 1, b = 5, | c = 1 - подставится из дефолтного параметра
+// count(2); // a = 2, | b = 10, c = 1 - подставятся из дефолтного параметра
+// count(undefined, 5, 2); // a = 0, b = 5, c = 2
+// count(); // a = 0, b = 10, c = 1
