@@ -199,12 +199,12 @@
 
 // МНОГОМЕРНЫЕ МАССИВЫ
 
-const house = [
-  [0.1, 0.2, 0.3], // [0]
-  [1.1, 1.2, 1.3], // [1]
-  [2.1, 2.2, 2.3] // [2]
-];
-console.log(house);
+// const house = [
+//   [0.1, 0.2, 0.3], // [0]
+//   [1.1, 1.2, 1.3], // [1]
+//   [2.1, 2.2, 2.3] // [2]
+// ];
+// console.log(house);
 
 // console.log(house[0][0]); // 1
 // console.log(house[0][1]); // 2
@@ -221,13 +221,13 @@ console.log(house);
 // // вложенные циклы для перебора вложенных массивов
 // let total = 0;
 
-for (let i = 0; i < house.length; i += 1) {
-  console.log("Вложенный массив ", house[i]);
-  for (let j = 0; j <= house.length; j += 1) {
-    console.log("Элемент вложенного массива", house[i][j]);
-    // total += house[i][j];
-  }
-}
+// for (let i = 0; i < house.length; i += 1) {
+//   console.log("Вложенный массив ", house[i]);
+//   for (let j = 0; j <= house.length; j += 1) {
+//     console.log("Элемент вложенного массива", house[i][j]);
+//     // total += house[i][j];
+//   }
+// }
 // // console.log(total);
 
 // // ============== занятие 2 ========
@@ -450,8 +450,8 @@ for (let i = 0; i < house.length; i += 1) {
 //   return a + b + c;
 // };
 
-// // вызов функции
-// //               (arguments)
+// // // вызов функции
+// // //               (arguments)
 // const result = add(1, 2, 3);
 // console.log(result); // 6
 
@@ -469,9 +469,10 @@ for (let i = 0; i < house.length; i += 1) {
 
 // const fn2 = function() {
 //   console.log("Выполняется 2я функция"); // 2.2 - done
+//   //   fn1();
 // };
 
-// // вызов
+// // // вызов
 // console.log("Начато выполнение основного кода"); // 1 - done
 // fn1(); // 2 - done
 // console.log("Продолжение выполнения основного кода после выхода из 1й функции"); // 3 -done
@@ -490,23 +491,37 @@ for (let i = 0; i < house.length; i += 1) {
 // count(undefined, 5, 2); // a = 0, b = 5, c = 2
 // count(); // a = 0, b = 10, c = 1
 
+// const wantToBuy = function(meat = "chicken", eggs = "austich", milk = "cow") {
+//   console.log(meat, eggs, milk);
+// };
+
+// wantToBuy("pork", "chicken", "coconut"); // значения по умолчанию не применились
+// wantToBuy(); // отразятся все значения по умолчанию
+// wantToBuy("pork"); // обновится только первій параметр
+// wantToBuy(undefined, undefined, "coconut"); // заменит только третий параметр по умолчанию
+
 // псевдомассив ARGUMENTS (спец локальная переменная)
 // хранит все аргументы, как псевдомассив
 // может содержать отличное от параметров число аргументов
 
-const sum = function() {
-  let total = 0;
+// const sum = function() {
+//   let total = 0;
+//   //         элемент псевдомассива arguments
+//   for (const argument of arguments) {
+//     // total += argument;
+//     total = total + argument;
+//     // 0 = 0 + 1й аргумент (2) - 1я итерация
+//     // 2 = 2 + 2й аргумент (4) - 2я итерация
+//     // 6 = 6 + 3й аргумент (6) - 3я итерация
+//     // 12 = 12 + 4й аргумент (8) - 3я итерация
+//     console.log(`итерация с ${argument}`, total);
+//   }
+//   return total;
+// };
 
-  for (const argument of arguments) {
-    total += argument;
-  }
-
-  return total;
-};
-
-console.log(sum(1, 2, 3)); // 6
-console.log(sum(2, 4, 6, 8)); // 20
-console.log(sum(5, 10, 15, 20)); // 50
+// // console.log(sum(1, 2, 3)); // 6
+// console.log(sum(2, 4, 6, 8)); // 20
+// // console.log(sum(5, 10, 15, 20)); // 50
 
 // преобразование псевдомассива
 // (псевдомассивы не имеют большинства методов массивов, но...)
@@ -518,71 +533,87 @@ console.log(sum(5, 10, 15, 20)); // 50
 // };
 
 // 2
-const fn = function(...args) {
-  // В переменной args будет полноценный массив
-};
+// const fn = function(...args) {
+//   // В переменной args будет полноценный массив
+// };
 
 // GUARD CLAUSE
 // 1 - with if...else
-const takeCash = function(amount, balance) {
-  if (amount === 0) {
-    console.log("Enter the summ please");
-  } else if (amount > balance) {
-    console.log("No money, no honey");
-  } else {
-    console.log("Please take your cash");
-  }
-};
+// const takeCash = function(amount, balance) {
+//   if (amount === 0) {
+//     console.log("Enter the summ please");
+//   } else if (amount > balance) {
+//     console.log("No money, no honey");
+//   } else {
+//     console.log("Please take your cash");
+//   }
+// };
 
-takeCash(0, 300);
-takeCash(500, 300);
-takeCash(100, 300);
+// takeCash(0, 300);
+// takeCash(500, 300);
+// takeCash(100, 300);
 
 // 2 - with operator return;
-const takeCash1 = function(amount1, balance1) {
-  if (amount1 === 0) {
-    console.log("Enter the summ plese");
-    return;
-  }
-  if (amount1 > balance1) {
-    console.log("No money, no honey");
-    return;
-  }
-  console.log("Please take your cash");
-};
-takeCash1(0, 300);
-takeCash1(500, 300);
-takeCash1(100, 300);
+// const takeCash1 = function(amount1, balance1) {
+//   if (amount1 === 0) {
+//     console.log("Enter the summ plese");
+//     return;
+//   }
+//   if (amount1 > balance1) {
+//     console.log("No money, no honey");
+//     return;
+//   }
+//   console.log("Please take your cash");
+// };
+// takeCash1(0, 300);
+// takeCash1(500, 300);
+// takeCash1(100, 300);
 
 // FUNCTION DECLARATION (without variable)
 
 // такую функцию можно вызвать до ее объявления - надо быть осторожным с такой записью
 
-console.log(summNumbers(1, 2, 3));
-modalMsg("Hello World!");
+// console.log(summNumbers(1, 2, 3));
+// modalMsg("Hello World!");
 
-function summNumbers(a, b, c) {
-  return a + b + c;
-}
+// function summNumbers(a, b, c) {
+//   return a + b + c;
+// }
 
-function modalMsg(str) {
-  console.log(str);
-}
+// function modalMsg(str) {
+//   console.log(str);
+// }
 
 // GLOBAL SCOPE && LOCAL SCOPE == FUNCTION SCOPE || BLOCK SCOPE
 
 // ====================== GLOBAL SCOPE ======================
-function relative() {
-  // ============ LOCAL FUNCTION relative() SCOPE ===========
-  if (true) {
-    // LOCAL BLOCK SCOPE
-  }
-  // ============ LOCAL FUNCTION relative() SCOPE ===========
-  function child() {
-    // LOCAL FUNCTION child() SCOPE
-  }
-  // ============ LOCAL FUNCTION relative() SCOPE ===========
-}
+// let b = 100;
+// console.log(b);
+
+// function relative() {
+//   console.log(b);
+//   let a = 34;
+//   console.log(a);
+//   // ============ LOCAL FUNCTION relative() SCOPE ===========
+//   if (true) {
+//     let a = 5;
+//     console.log(a);
+//     console.log(b);
+//     // LOCAL BLOCK SCOPE
+//   }
+//   // ============ LOCAL FUNCTION relative() SCOPE ===========
+//   function child() {
+//     // let a = 10;
+//     // console.log(a);
+//     console.log(b);
+//     // LOCAL FUNCTION child() SCOPE
+//   }
+//   console.log(b);
+//   // ============ LOCAL FUNCTION relative() SCOPE ===========
+// }
+// // console.log(a);
+// console.log(relative());
+
 // ====================== GLOBAL SCOPE ======================
 
 // const myName = "Sasha";
@@ -613,27 +644,28 @@ function relative() {
 // В ПЕРЕМЕННОЙ, объявленной через ключевое слово var
 
 // ==1==
-console.log(value);
-value = 5;
+// console.log(value);
+// value = 5;
 
-if (true) {
-  console.log(value); // 5
-  var value = 10;
-  console.log(value); // 10
-}
+// if (true) {
+//   console.log(value); // 5
+//   var value = 10;
+//   console.log(value); // 10
+// }
 
-value = 15;
-console.log(value); //15
+// value = 15;
+// console.log(value); //15
 
-// ARROW FUNCTIONS
-const myFunction = function(a, b, c) {
-  return a + b + c;
-};
-console.log(myFunction(1, 2, 3)); // 6
-// ||
-const myArrowFunction = (a, b, c) => a + b + c;
-console.log(myArrowFunction(1, 2, 3)); // 6
+// // ARROW FUNCTIONS
+// const myFunction = function(a, b, c) {
+//   return a + b + c;
+// };
+// console.log(myFunction(1, 2, 3)); // 6
 
-// ARROW FUNCTIONS & arguments --> ...args
-const myNewArrowFunction = (...args) => console.log(args);
-myNewArrowFunction(1, 2, 3); // [1, 2, 3]
+// // // ||
+// const myArrowFunction = (a, b, c) => a + b + c;
+// console.log(myArrowFunction(1, 2, 3)); // 6
+
+// // ARROW FUNCTIONS & arguments --> ...args
+// const myNewArrowFunction = (...args) => console.log(args);
+// myNewArrowFunction(1, 2, 3); // [1, 2, 3]
