@@ -446,36 +446,36 @@
 
 // // объявление функции
 // //                 (parametres)
-// const add = function(a, b, c) {
-//   return a + b + c;
-// };
+const add = function(a, b, c) {
+  return a + b + c;
+};
 
 // // // вызов функции
 // // //               (arguments)
-// const result = add(1, 2, 3);
-// console.log(result); // 6
-
+const result = add(1, 2, 3);
+console.log(result); // 6
+// add();
 // console.log(add(5, 10, 15)); // 30
 // console.log(add(299, 14, 121)); // 434
 
 // // ПОРЯДОК ВЫПОЛНЕНИЯ КОДА
 // // объявление
-// const fn1 = function() {
-//   console.log("1я функция начала выполняться"); // 2.1 - done
-//   // // вызов
-//   fn2(); // DONE
-//   console.log("Продолжение выполнения 1й функции после выхода из 2й функции"); // 2.3 - done
-// };
+const fn1 = function() {
+  console.log("1я функция начала выполняться"); // 2.1 - done
+  // // вызов
+  fn2(); // DONE
+  console.log("Продолжение выполнения 1й функции после выхода из 2й функции"); // 2.3 - done
+};
 
-// const fn2 = function() {
-//   console.log("Выполняется 2я функция"); // 2.2 - done
-//   //   fn1();
-// };
+const fn2 = function() {
+  console.log("Выполняется 2я функция"); // 2.2 - done
+  //   fn1();
+};
 
 // // // вызов
-// console.log("Начато выполнение основного кода"); // 1 - done
-// fn1(); // 2 - done
-// console.log("Продолжение выполнения основного кода после выхода из 1й функции"); // 3 -done
+console.log("Начато выполнение основного кода"); // 1 - done
+fn1(); // 2 - done
+console.log("Продолжение выполнения основного кода после выхода из 1й функции"); // 3 -done
 
 // // параметры по умолчанию
 // const count = function(a = 0, b = 10, c = 1) {
@@ -657,13 +657,13 @@
 // console.log(value); //15
 
 // // ARROW FUNCTIONS
-// const myFunction = function(a, b, c) {
-//   return a + b + c;
-// };
-// console.log(myFunction(1, 2, 3)); // 6
+const myFunction = function(a, b, c) {
+  return a + b + c;
+};
+console.log(myFunction(1, 2, 3)); // 6
 
 // // // ||
-// const myArrowFunction = (a, b, c) => a + b + c;
+const myArrowFunction = (a, b, c) => a + b + c;
 // console.log(myArrowFunction(1, 2, 3)); // 6
 
 // // ARROW FUNCTIONS & arguments --> ...args

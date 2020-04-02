@@ -72,13 +72,13 @@
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
-console.log(toGetCost("To be, or not to be, that is the question", 10)); // 100
+// console.log(toGetCost("To be, or not to be, that is the question", 10)); // 100
 
-console.log(toGetCost("Whether 'tis nobler in the mind to suffer", 20)); // 160
+// console.log(toGetCost("Whether 'tis nobler in the mind to suffer", 20)); // 160
 
-console.log(toGetCost("The slings and arrows of outrageous fortune,", 40)); // 280
+// console.log(toGetCost("The slings and arrows of outrageous fortune,", 40)); // 280
 
-console.log(toGetCost("Or to take arms against a sea of troubles", 20)); // 180
+// console.log(toGetCost("Or to take arms against a sea of troubles", 20)); // 180
 // ============== 4 ===============================================
 // Напиши функцию logItems(array), которая получает массив и использует цикл for,
 // который для каждого элемента массива будет выводить в консоль сообщение
@@ -179,3 +179,4 @@ console.log(toGetCost("Or to take arms against a sea of troubles", 20)); // 180
 // let input;
 // const numbers = [];
 // let total = 0;
+
