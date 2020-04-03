@@ -353,15 +353,15 @@ console.log(name, stars, status); // "Resort Hotel", 5, undefined
 
 // == Присвоения undefined можно избежать, задав переменным значения по умолчанию,
 // в случае если такого свойства в объекте нет.
-const hotel = {
-  name: "Resort Hotel",
-  stars: 5,
-  capacity: 100
+const hotel2 = {
+  name2: "Resort Hotel",
+  stars2: 5,
+  capacity2: 100
 };
 
-const { name = "hotel", stars = 3, status = "empty" } = hotel;
+const { name2 = "hotel", stars2 = 3, status2 = "empty" } = hotel2;
 
-console.log(name, stars, status); // "Resort Hotel", 5, "empty"
+console.log(name2, stars2, status2); // "Resort Hotel", 5, "empty"
 
 // == можно переопределить имена в процессе присвоения.
 // Сначала пишем имя свойства из которого мы хотим получить значение,
@@ -369,28 +369,28 @@ console.log(name, stars, status); // "Resort Hotel", 5, "empty"
 // значение этого свойства.
 
 const hotel3 = {
-  name: "Resort Hotel",
-  stars: 5,
-  capacity: 100
+  name3: "Resort Hotel",
+  stars3: 5,
+  capacity3: 100
 };
 
-const { name: hotelName, stars, status: hotelStatus = "empty" } = hotel3;
+const { name3: hotelName3, stars3, status3: hotelStatus3 = "empty" } = hotel3;
 
-console.log(hotelName, stars, hotelStatus); // "Resort Hotel", 5, "empty"
+console.log(hotelName3, stars3, hotelStatus3); // "Resort Hotel", 5, "empty"
 
 // == можно делать частичную деструктуризацию, взяв из объекта необходимые поля,
 // а остальное собрать в переменную под именем rest (имя переменной произвольное),
 // это будет объект с теми полями, которые мы явно не деструктуризировали
 // в переменные.
 const hotel4 = {
-  name: "Resort Hotel",
-  stars: 5,
-  capacity: 100
+  name4: "Resort Hotel",
+  stars4: 5,
+  capacity4: 100
 };
 
-const { name, ...rest } = hotel4;
+const { name4, ...rest } = hotel4;
 
-console.log(name); // "Resort Hotel"
+console.log(name4); // "Resort Hotel"
 console.log(rest); // {stars: 5, capacity: 100}
 
 // Д Е С Т Р У К Т У Р И З А Ц И Я массивов [array]
@@ -407,35 +407,35 @@ console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}`);
 
 // При деструктуризации массивов переменной может быть присвоено значение
 // отдельно от ее объявления.
-const rgb = [200, 255, 100];
-let red, green, blue;
+const rgb1 = [200, 255, 100];
+let red1, green1, blue1;
 
-[red, green, blue] = rgb;
+[red1, green1, blue1] = rgb1;
 
-console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}`);
+console.log(`Red: ${red1}, Green: ${green1}, Blue: ${blue1}`);
 // Red: 200, Green: 255, Blue: 100
 
 // Если переменных больше чем элементов массива, им будет присвоено undefined,
 // поэтому можно указывать значения по умолчанию.
-const rgb = [200, 100, 255];
+const rgb2 = [200, 100, 255];
 
-const [red, green, blue, alfa = 0.3] = rgb;
+const [red2, green2, blue2, alfa2 = 0.3] = rgb2;
 
-console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}, Alfa: ${alfa}`);
+console.log(`Red: ${red2}, Green: ${green2}, Blue: ${blue2}, Alfa: ${alfa2}`);
 // Red: 200, Green: 100, Blue: 255, Alfa: 0.3
 
 // можно распаковать и присвоить оставшуюся часть элементов массива переменной
-const rgb = [200, 255, 100];
+const rgb3 = [200, 255, 100];
 
-const [red, ...colors] = rgb;
+const [red3, ...colors] = rgb3;
 
-console.log(`Red: ${red}, Colors: ${colors}`);
+console.log(`Red: ${red3}, Colors: ${colors}`);
 // Red: 200, Colors: [255, 100]
 
 // Элементы можно пропускать. Допустим из массива rgb необходимо взять только последнее значение.
 // Используется это крайне редко.
-const rgb = [200, 100, 255];
+const rgb4 = [200, 100, 255];
 
-const [, , blue] = rgb;
+const [, , blue4] = rgb4;
 
-console.log(`Blue: ${blue}`); // Blue: 255
+console.log(`Blue: ${blue4}`); // Blue: 255
