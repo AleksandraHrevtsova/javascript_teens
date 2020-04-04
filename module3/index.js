@@ -2,11 +2,13 @@
 // OBJECTS
 
 // const object = {
+//   key: value,
 //   key: value // СВОЙСТВО ОБЪЕКТА состоит из ключа и значения
 //   // "key" || _key || $key - string : value - primitive, array, object, function
 //   //
 // };
 // объект НЕЛЬЗЯ использовать до объявления
+
 const frontend = {
   language_1: "HTML",
   language_2: "CSS",
@@ -18,8 +20,13 @@ const student = {
   name: "Aleksandra",
   lastName: "Hrevtsova",
   age: 31,
-  sex: "male",
-  course: frontend,
+  sex: "female",
+  course: frontend, // альтернатива ниже
+  //   course: {
+  //     language_1: "HTML",
+  //     language_2: "CSS",
+  //     language_3: "Js"
+  //   },
   passExam: true
 };
 console.log("student", student); // {name: "Aleksandra", lastName: "Hrevtsova", age: 31, sex: "male", course: {…}, …}
@@ -32,28 +39,34 @@ console.log(student.age); // 31
 console.log(student.sex); // male
 console.log(student.course); // {language_1: "HTML", language_2: "CSS", language_3: "Javascript"}
 console.log(student.passExam); // true
+
 // 2 - object["key"]
 console.log(frontend["language_1"]); // HTML
 console.log(frontend["language_2"]); // CSS
-console.log(frontend["language_3"]); // Js
+console.log(frontend["language_3"]); // Js - объект
+//              array[0] - массив
 
 // ИЗМЕНЕНИЕ СВОЙСТВА ОБЪЕКТА
+// 1 - object.key
 student.lastName = "O'Hurn";
 console.log(student.lastName); // O'Hurn
 
 console.log("student", student);
 
+// 2 - object["key"]
 frontend["language_3"] = "Javascript";
 console.log(frontend["language_3"]); // Javascript
 
 console.log("frontend", frontend); // {language_1: "HTML", language_2: "CSS", language_3: "Javascript"}
 
 // ДОБАВЛЕНИЕ НОВОГО СВОЙСТВА ОБЪЕКТУ
+// 1 - object.key
 student.address = "Heroyv Stalihradu, 6";
 console.log(student.address); // Heroyv Stalihradu, 6
 
 console.log("student", student); // {name: "Aleksandra", lastName: "O'Hurn", age: 31, sex: "male", course: {…}, …}
 
+// 2 - object["key"]
 student["phone number"] = "+38 050 071 53 30";
 console.log(student["phone number"]); // +38 050 071 53 30
 
@@ -62,43 +75,49 @@ console.log("student", student); // {name: "Aleksandra", lastName: "O'Hurn", age
 // УДАЛЕНИЕ СВОЙСТВА ОБЪЕКТА оператором delete и Отсутствующие свойства
 delete frontend.language_1;
 console.log(frontend.language_1); // undefined - потому что отсутсвует
-console.log("student", frontend); // {language_2: "CSS", language_3: "Javascript"}
+console.log("frontend", frontend); // {language_2: "CSS", language_3: "Javascript"}
 
 delete frontend["language_2"];
 console.log(frontend["language_2"]); // undefined
-console.log("student", frontend); // {language_3: "Javascript"}
+console.log("frontend", frontend); // {language_3: "Javascript"}
 
 // КОРОТКИЕ СВОЙСТВА (shorthand properties)
 
 const myTeacher = "Sasha Hrevtsova";
 const course = "frontend";
 
-const group_17 = {
-  myTeacher,
-  course,
-  count: 10
-};
-console.log(group_17); // {myTeacher: "Sasha Hrevtsova", course: "frontend", count: 10}
-
 const group_4 = {
-  myTeacher,
-  course,
+  myTeacher, // myTeacher: "Sasha Hrevtsova",
+  course, // course: "frontend",
   count: 9
 };
 console.log(group_4); // {myTeacher: "Sasha Hrevtsova", course: "frontend", count: 9}
 
+// const group_17 = {
+//   //   myTeacher: "Sasha Hrevtsova", // так раньше писали (2015-2017)
+//   myTeacher, // теперь так пишут - 2020
+//   //   course: "frontend",
+//   course,
+//   count: 10
+// };
+// console.log(group_17); // {myTeacher: "Sasha Hrevtsova", course: "frontend", count: 10}
+
 // ВЫЧИСЛЯЕМЫЕ СВОЙСТВА
 // через переменную
 const key = "test";
-
-// через функцию
-const getKey = function() {
-  return "score";
-};
+const name = "Lucy";
+const age = "age1";
+// // // через функцию
+// const getKey = function() {
+//   return "result";
+// };
 
 const testResult = {
-  [key]: "2",
-  [getKey()]: 22
+  key, // key: "test", тут передается пара - ключ: значение
+  [key]: "2", // тут в key запишется значение переменной
+  //   [getKey()]: 22,
+  [name]: "my friend",
+  [age]: 32
 };
 
 console.log(testResult); // {test: "2", score: 22}
@@ -115,7 +134,7 @@ const myProducts = {
   oranges: 10
 };
 myProducts.toCheck(); // Проверь наличие
-console.log(myProducts);
+console.log("myProducts", myProducts);
 
 // создаем новый метод
 myProducts.toBuySweets = function() {
@@ -123,10 +142,10 @@ myProducts.toBuySweets = function() {
 };
 
 myProducts.toBuySweets(); // Ну купи же уже что-то сладенькое!
-console.log(myProducts); // toBuySweets() добавился
+console.log("myProducts with new method", myProducts); // toBuySweets() добавился
 
 delete myProducts.toBuySweets;
-console.log(myProducts); // toBuySweets() удалился
+console.log("myProducts without new method", myProducts); // toBuySweets() удалился
 
 // ДОСТУП К ОБЪЕКТУ ЧЕРЕЗ this
 
@@ -139,7 +158,7 @@ const product = {
     console.log(this.productName); // внутри объекта образаемся через this
   },
   changePrice(value) {
-    this.price = value; // внутри объекта образаемся через this
+    this.price = value; // внутри объекта обращаемся через this
   }
 };
 
@@ -151,15 +170,16 @@ console.log(product.price); // 89.5 - получаем измененную це
 
 // ПЕРЕБОР ОБЪЕКТА (не так, как массив)
 
-// // цикл for...in - только для объектов, перебирает ключи объекта
-// for (key in object) {
-//     // statements
-// }
+// цикл for...in - только для объектов, перебирает ключи объекта
+//          OBJECT                        ARRAY
+// for (let key in object) { || for (let el of array) {
+//     // statements         ||       // statements
+// }                         || }
 
 const myCars = {
   subaru: "Forester",
-  marda: "626",
-  volkwagen: "Golf",
+  mazda: "626",
+  volkswagen: "Golf",
   landRover: "Range Rover"
 };
 
@@ -168,13 +188,13 @@ for (const key in myCars) {
 }
 
 // key:  subaru
-// key:  marda
-// key:  volkwagen
+// key:  mazda
+// key:  volkswagen
 // key:  landRover
 
 // для перебора значений надо обращаться через object[key]
 for (const key in myCars) {
-  console.log("key: ", myCars[key]);
+  console.log("value: ", myCars[key]);
 }
 // key:  Forester
 // key:  626
@@ -189,28 +209,35 @@ const hero = {
   speed: 45
 };
 
+console.log("my hero", hero);
 // Object.keys(obj) - вернет массив со строчными ключами
 const keysOfHero = Object.keys(hero);
-console.log(keysOfHero); // ["name", "power", "lifes", "speed"]
+console.log("keysOfHero", keysOfHero); // ["name", "power", "lifes", "speed"]
 
-// который мы теперь можем перебрать циклом for...of и взять значения
+// // // который мы теперь можем перебрать циклом for...of и взять значения
 for (const key of keysOfHero) {
-  console.log("value: ", hero[key]); // ["Black Cat", 100, 9, 45]
+  // МЕТОД МАССИВА!!!
+  console.log("ключ: ", key);
+  //   //   key: name;
+  //   //   key: power;
+  //   //   key: lifes;
+  //   //   key: speed;
+  console.log("значение: ", hero[key]); // ["Black Cat", 100, 9, 45]
+  //   // // value:  Black Cat
+  //   // // value:  100
+  //   // // value:  9
+  //   // // value:  45
 }
-// value:  Black Cat
-// value:  100
-// value:  9
-// value:  45
 
 // Object.entries(obj) - вернет массив массивов [key, value] с 2я элементами
 const entriesOfHero = Object.entries(hero);
-console.log(entriesOfHero);
+console.log("entries Of Hero", entriesOfHero);
 
 for (const entry of entriesOfHero) {
   const key = entry[0];
   const value = entry[1];
 
-  console.log(`${key}: ${value}`);
+  console.log(`пакет - ${key}: сколько единиц - ${value}`);
 }
 
 // name: Black Cat
@@ -220,7 +247,7 @@ for (const entry of entriesOfHero) {
 
 // Object.values(obj) - вернет массив со значениями свойств
 const valuesOfHero = Object.values(hero);
-console.log(valuesOfHero); //  ["Black Cat", 100, 9, 45]
+console.log("values Of Hero", valuesOfHero); //  ["Black Cat", 100, 9, 45]
 
 const testsScore = {
   test_1: 16,
@@ -235,207 +262,227 @@ console.log(arrValues); // [16, 21, 22, 23]
 let totalScore = 0;
 
 for (const value of arrValues) {
-  totalScore += value;
+  totalScore += value; // || totalScore = totalScore + value;
+  console.log("totalScore на каждой итерации", totalScore);
+  // 0 + 16 = 16; - 1 итерация
+  // 16 + 21 = 37; - 2 итерация
+  // 37 + 22 = 59; - 3 итерация
+  // 59 + 23 = 82; - 4 итерация - последняя, потому что больше нет
+  // элементов массива для перебора
+  // последнее значение totalScore становится итоговым по работе цикла
 }
-console.log(totalScore); // 82
+console.log("totalScore", totalScore); // 82
+// // =============== ARRAY ====================
+// let age = 0; // Даня родился
+// const life = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+// // life.push(15);
+// console.log(life);
 
-// ... - SPREAD (распыление аргументов)
-// Во время вызова функции, для передачи массива элементов отдельными аргументами
-const test1 = [18, 14, 12, 21, 17, 29];
-const minTest1 = Math.min(test1);
-console.log(minTest1); // NaN
+// for (const year of life) {
+//   //   age = age + year;
+//   age += 1;
+//   console.log("возраст Дани каждый год", age);
+// }
+// console.log("возраст Дани сейчас", age);
+// // =============== ARRAY ====================
 
-const test2 = [18, 14, 12, 21, 17, 29];
-const minTest2 = Math.min(...test2);
-console.log(minTest2); // 12
+// // // ... - SPREAD (распыление аргументов)
+// // // Во время вызова функции, для передачи массива элементов отдельными аргументами
+// // const test1 = [18, 14, 12, 21, 17, 29];
+// // const minTest1 = Math.min(test1);
+// // console.log(minTest1); // NaN
 
-// ... - spread (распыление массивов) - альтернатива slice() - копирование массива
-// В литерале массива, при создании нового массив
-const marvelHeroes = [
-  "Captain Marvel",
-  "Thanos",
-  "Black Panter",
-  "Goose the Cat",
-  "Black Widow",
-  "Captain America"
-];
-const copyOfMarvelHeroes = [...marvelHeroes];
+// // const test2 = [18, 14, 12, 21, 17, 29];
+// // const minTest2 = Math.min(...test2);
+// // console.log(minTest2); // 12
 
-// const copyOfMarvelHeroes = marvelHeroes.slice(); // то же самое
+// // // ... - spread (распыление массивов) - альтернатива slice() - копирование массива
+// // // В литерале массива, при создании нового массив
+// // const marvelHeroes = [
+// //   "Captain Marvel",
+// //   "Thanos",
+// //   "Black Panter",
+// //   "Goose the Cat",
+// //   "Black Widow",
+// //   "Captain America"
+// // ];
+// // const copyOfMarvelHeroes = [...marvelHeroes];
 
-console.log("marvelHeroes", marvelHeroes);
-// ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
+// // // const copyOfMarvelHeroes = marvelHeroes.slice(); // то же самое
 
-console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
-// ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
+// // console.log("marvelHeroes", marvelHeroes);
+// // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
 
-console.log(
-  "marvelHeroes === copyOfMarvelHeroes",
-  marvelHeroes === copyOfMarvelHeroes
-); // false - разные ссылки
+// // console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
+// // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
 
-// ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ РАСПЫЛЕНИИ
-// const copyOfMarvelHeroes = [...marvelHeroes, "Hulk", "Spider-Man"];
-// // можно добавить элементы при кописаровании
-// console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
-// // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America", "Hulk", "Spider-Man"]
+// // console.log(
+// //   "marvelHeroes === copyOfMarvelHeroes",
+// //   marvelHeroes === copyOfMarvelHeroes
+// // ); // false - разные ссылки
 
-// КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ полностью
-const firstNum = [1, 2, 3];
-const secondNum = [4, 5, 6];
+// // // ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ РАСПЫЛЕНИИ
+// // // const copyOfMarvelHeroes = [...marvelHeroes, "Hulk", "Spider-Man"];
+// // // // можно добавить элементы при кописаровании
+// // // console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
+// // // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America", "Hulk", "Spider-Man"]
 
-const allNums = [...firstNum, ...secondNum];
-// const allNums = firstNum.concat(secondNum); // альтернатива concat()
+// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ полностью
+// // const firstNum = [1, 2, 3];
+// // const secondNum = [4, 5, 6];
 
-console.log(allNums); // [1, 2, 3, 4, 5, 6]
+// // const allNums = [...firstNum, ...secondNum];
+// // // const allNums = firstNum.concat(secondNum); // альтернатива concat()
 
-// КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ частично
-const notAllNums = [...firstNum.slice(0, 1), ...secondNum.slice(-1)];
-console.log(notAllNums); // [1, 6]
+// // console.log(allNums); // [1, 2, 3, 4, 5, 6]
 
-// КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ с добавлением элемента извне
-const updatedNums = [
-  ...firstNum.slice(0, 2),
-  "Js is the best",
-  ...secondNum.slice(-2)
-];
-console.log(updatedNums); // [1, 2, "Js is the best", 5, 6]
+// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ частично
+// // const notAllNums = [...firstNum.slice(0, 1), ...secondNum.slice(-1)];
+// // console.log(notAllNums); // [1, 6]
 
-// ... - spread (распыление объеков) как альтернатива Object.assign()
-// В литерале объекта, при создании нового объекта
-const mod_1 = { test: 2, hw: 3 };
-const mod_2 = { test: 4, hw: 6, addit: 2 };
+// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ с добавлением элемента извне
+// // const updatedNums = [
+// //   ...firstNum.slice(0, 2),
+// //   "Js is the best",
+// //   ...secondNum.slice(-2)
+// // ];
+// // console.log(updatedNums); // [1, 2, "Js is the best", 5, 6]
 
-// const mod_3 = Object.assign({}, mod_1, mod_2);
-// console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
+// // // ... - spread (распыление объеков) как альтернатива Object.assign()
+// // // В литерале объекта, при создании нового объекта
+// // const mod_1 = { test: 2, hw: 3 };
+// // const mod_2 = { test: 4, hw: 6, addit: 2 };
 
-// ... - spread
-const mod_3 = { ...mod_1, ...mod_2 };
-console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
+// // // const mod_3 = Object.assign({}, mod_1, mod_2);
+// // // console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
 
-// !!! ВНИМАТЕЛЬНО !!! если свойства (ключи) перед распылением совпадают
-const a = { x: 1, y: 2 };
-const b = { x: 0, z: 3 };
-const c = { x: 5, j: 10, ...a, z: 15, ...b };
-console.log(c); // {x: 0, j: 10, y: 2, z: 3}
+// // // ... - spread
+// // const mod_3 = { ...mod_1, ...mod_2 };
+// // console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
 
-// ... - REST (сбор аргументов) - немного затронули в функциях (модуль 2)
-const add1 = function(...args) {
-  console.log("add1 args", args); // массив всех аргументов
-};
+// // // !!! ВНИМАТЕЛЬНО !!! если свойства (ключи) перед распылением совпадают
+// // const a = { x: 1, y: 2 };
+// // const b = { x: 0, z: 3 };
+// // const c = { x: 5, j: 10, ...a, z: 15, ...b };
+// // console.log(c); // {x: 0, j: 10, y: 2, z: 3}
 
-add1(1, 2, 3);
-add1(1, 2, 3, 4, 5);
+// // // ... - REST (сбор аргументов) - немного затронули в функциях (модуль 2)
+// // const add1 = function(...args) {
+// //   console.log("add1 args", args); // массив всех аргументов
+// // };
 
-const add2 = function(value, ...args) {
-  console.log("add2 value", value); // первый аргумент
-  console.log("add2 args", args); // массив всех остальных аргументов
-};
+// // add1(1, 2, 3);
+// // add1(1, 2, 3, 4, 5);
 
-add2(10, 1, 2, 3);
-add2(15, 1, 2, 3, 4, 5);
+// // const add2 = function(value, ...args) {
+// //   console.log("add2 value", value); // первый аргумент
+// //   console.log("add2 args", args); // массив всех остальных аргументов
+// // };
 
-// Д Е С Т Р У К Т У Р И З А Ц И Я объектов {object}
+// // add2(10, 1, 2, 3);
+// // add2(15, 1, 2, 3, 4, 5);
 
-// Если имя переменной и ключ объекта совпадают, то происходит присваивание.
-// Если для переменной не нашлось подходящего ключа то будет присвоен undefined.
+// // // Д Е С Т Р У К Т У Р И З А Ц И Я объектов {object}
 
-const hotel = {
-  name: "Resort Hotel",
-  stars: 5,
-  capacity: 100
-};
+// // // Если имя переменной и ключ объекта совпадают, то происходит присваивание.
+// // // Если для переменной не нашлось подходящего ключа то будет присвоен undefined.
 
-// Объявим переменные и присвоим им значения из объекта
-const { name, stars, status } = hotel;
+// // const hotel = {
+// //   name: "Resort Hotel",
+// //   stars: 5,
+// //   capacity: 100
+// // };
 
-console.log(name, stars, status); // "Resort Hotel", 5, undefined
+// // // Объявим переменные и присвоим им значения из объекта
+// // const { name, stars, status } = hotel;
 
-// == Присвоения undefined можно избежать, задав переменным значения по умолчанию,
-// в случае если такого свойства в объекте нет.
-const hotel2 = {
-  name2: "Resort Hotel",
-  stars2: 5,
-  capacity2: 100
-};
+// // console.log(name, stars, status); // "Resort Hotel", 5, undefined
 
-const { name2 = "hotel", stars2 = 3, status2 = "empty" } = hotel2;
+// // // == Присвоения undefined можно избежать, задав переменным значения по умолчанию,
+// // // в случае если такого свойства в объекте нет.
+// // const hotel2 = {
+// //   name2: "Resort Hotel",
+// //   stars2: 5,
+// //   capacity2: 100
+// // };
 
-console.log(name2, stars2, status2); // "Resort Hotel", 5, "empty"
+// // const { name2 = "hotel", stars2 = 3, status2 = "empty" } = hotel2;
 
-// == можно переопределить имена в процессе присвоения.
-// Сначала пишем имя свойства из которого мы хотим получить значение,
-// после чего ставим двоеточие и пишем имя переменной в которую хотим поместить
-// значение этого свойства.
+// // console.log(name2, stars2, status2); // "Resort Hotel", 5, "empty"
 
-const hotel3 = {
-  name3: "Resort Hotel",
-  stars3: 5,
-  capacity3: 100
-};
+// // // == можно переопределить имена в процессе присвоения.
+// // // Сначала пишем имя свойства из которого мы хотим получить значение,
+// // // после чего ставим двоеточие и пишем имя переменной в которую хотим поместить
+// // // значение этого свойства.
 
-const { name3: hotelName3, stars3, status3: hotelStatus3 = "empty" } = hotel3;
+// // const hotel3 = {
+// //   name3: "Resort Hotel",
+// //   stars3: 5,
+// //   capacity3: 100
+// // };
 
-console.log(hotelName3, stars3, hotelStatus3); // "Resort Hotel", 5, "empty"
+// // const { name3: hotelName3, stars3, status3: hotelStatus3 = "empty" } = hotel3;
 
-// == можно делать частичную деструктуризацию, взяв из объекта необходимые поля,
-// а остальное собрать в переменную под именем rest (имя переменной произвольное),
-// это будет объект с теми полями, которые мы явно не деструктуризировали
-// в переменные.
-const hotel4 = {
-  name4: "Resort Hotel",
-  stars4: 5,
-  capacity4: 100
-};
+// // console.log(hotelName3, stars3, hotelStatus3); // "Resort Hotel", 5, "empty"
 
-const { name4, ...rest } = hotel4;
+// // // == можно делать частичную деструктуризацию, взяв из объекта необходимые поля,
+// // // а остальное собрать в переменную под именем rest (имя переменной произвольное),
+// // // это будет объект с теми полями, которые мы явно не деструктуризировали
+// // // в переменные.
+// // const hotel4 = {
+// //   name4: "Resort Hotel",
+// //   stars4: 5,
+// //   capacity4: 100
+// // };
 
-console.log(name4); // "Resort Hotel"
-console.log(rest); // {stars: 5, capacity: 100}
+// // const { name4, ...rest } = hotel4;
 
-// Д Е С Т Р У К Т У Р И З А Ц И Я массивов [array]
+// // console.log(name4); // "Resort Hotel"
+// // console.log(rest); // {stars: 5, capacity: 100}
 
-// В результате такой записи будут созданы 3 переменные и в них будут помещены
-// элементы в нумерованом порядке, от 0 до конца массива.
+// // // Д Е С Т Р У К Т У Р И З А Ц И Я массивов [array]
 
-const rgb = [200, 255, 100];
+// // // В результате такой записи будут созданы 3 переменные и в них будут помещены
+// // // элементы в нумерованом порядке, от 0 до конца массива.
 
-const [red, green, blue] = rgb;
+// // const rgb = [200, 255, 100];
 
-console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}`);
-// Red: 200, Green: 255, Blue: 100
+// // const [red, green, blue] = rgb;
 
-// При деструктуризации массивов переменной может быть присвоено значение
-// отдельно от ее объявления.
-const rgb1 = [200, 255, 100];
-let red1, green1, blue1;
+// // console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}`);
+// // // Red: 200, Green: 255, Blue: 100
 
-[red1, green1, blue1] = rgb1;
+// // // При деструктуризации массивов переменной может быть присвоено значение
+// // // отдельно от ее объявления.
+// // const rgb1 = [200, 255, 100];
+// // let red1, green1, blue1;
 
-console.log(`Red: ${red1}, Green: ${green1}, Blue: ${blue1}`);
-// Red: 200, Green: 255, Blue: 100
+// // [red1, green1, blue1] = rgb1;
 
-// Если переменных больше чем элементов массива, им будет присвоено undefined,
-// поэтому можно указывать значения по умолчанию.
-const rgb2 = [200, 100, 255];
+// // console.log(`Red: ${red1}, Green: ${green1}, Blue: ${blue1}`);
+// // // Red: 200, Green: 255, Blue: 100
 
-const [red2, green2, blue2, alfa2 = 0.3] = rgb2;
+// // // Если переменных больше чем элементов массива, им будет присвоено undefined,
+// // // поэтому можно указывать значения по умолчанию.
+// // const rgb2 = [200, 100, 255];
 
-console.log(`Red: ${red2}, Green: ${green2}, Blue: ${blue2}, Alfa: ${alfa2}`);
-// Red: 200, Green: 100, Blue: 255, Alfa: 0.3
+// // const [red2, green2, blue2, alfa2 = 0.3] = rgb2;
 
-// можно распаковать и присвоить оставшуюся часть элементов массива переменной
-const rgb3 = [200, 255, 100];
+// // console.log(`Red: ${red2}, Green: ${green2}, Blue: ${blue2}, Alfa: ${alfa2}`);
+// // // Red: 200, Green: 100, Blue: 255, Alfa: 0.3
 
-const [red3, ...colors] = rgb3;
+// // // можно распаковать и присвоить оставшуюся часть элементов массива переменной
+// // const rgb3 = [200, 255, 100];
 
-console.log(`Red: ${red3}, Colors: ${colors}`);
-// Red: 200, Colors: [255, 100]
+// // const [red3, ...colors] = rgb3;
 
-// Элементы можно пропускать. Допустим из массива rgb необходимо взять только последнее значение.
-// Используется это крайне редко.
-const rgb4 = [200, 100, 255];
+// // console.log(`Red: ${red3}, Colors: ${colors}`);
+// // // Red: 200, Colors: [255, 100]
 
-const [, , blue4] = rgb4;
+// // // Элементы можно пропускать. Допустим из массива rgb необходимо взять только последнее значение.
+// // // Используется это крайне редко.
+// // const rgb4 = [200, 100, 255];
 
-console.log(`Blue: ${blue4}`); // Blue: 255
+// // const [, , blue4] = rgb4;
+
+// // console.log(`Blue: ${blue4}`); // Blue: 255
