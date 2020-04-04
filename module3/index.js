@@ -288,84 +288,88 @@ console.log("totalScore", totalScore); // 82
 
 // // // ... - SPREAD (распыление аргументов)
 // // // Во время вызова функции, для передачи массива элементов отдельными аргументами
-// // const test1 = [18, 14, 12, 21, 17, 29];
-// // const minTest1 = Math.min(test1);
-// // console.log(minTest1); // NaN
+const test1 = [18, 14, 12, 21, 17, 29];
+const minTest1 = Math.min(test1);
+console.log(minTest1); // NaN
 
-// // const test2 = [18, 14, 12, 21, 17, 29];
-// // const minTest2 = Math.min(...test2);
-// // console.log(minTest2); // 12
+const test2 = [18, 14, 12, 21, 17, 29];
+const minTest2 = Math.min(...test2);
+console.log(minTest2); // 12
 
-// // // ... - spread (распыление массивов) - альтернатива slice() - копирование массива
-// // // В литерале массива, при создании нового массив
-// // const marvelHeroes = [
-// //   "Captain Marvel",
-// //   "Thanos",
-// //   "Black Panter",
-// //   "Goose the Cat",
-// //   "Black Widow",
-// //   "Captain America"
-// // ];
-// // const copyOfMarvelHeroes = [...marvelHeroes];
+// ... - spread (распыление массивов) - альтернатива slice() - копирование массива
+// В литерале массива, при создании нового массив
+const marvelHeroes = [
+  "Captain Marvel",
+  "Thanos",
+  "Black Panter",
+  "Goose the Cat",
+  "Black Widow",
+  "Captain America"
+];
+// const copyOfMarvelHeroes = [...marvelHeroes];
 
 // // // const copyOfMarvelHeroes = marvelHeroes.slice(); // то же самое
 
-// // console.log("marvelHeroes", marvelHeroes);
-// // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
+console.log("marvelHeroes", marvelHeroes);
+// ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
 
-// // console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
-// // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
+// console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
+// ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America"]
 
-// // console.log(
-// //   "marvelHeroes === copyOfMarvelHeroes",
-// //   marvelHeroes === copyOfMarvelHeroes
-// // ); // false - разные ссылки
+// console.log(
+//   "marvelHeroes === copyOfMarvelHeroes",
+//   marvelHeroes === copyOfMarvelHeroes
+// ); // false - разные ссылки
 
-// // // ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ РАСПЫЛЕНИИ
-// // // const copyOfMarvelHeroes = [...marvelHeroes, "Hulk", "Spider-Man"];
-// // // // можно добавить элементы при кописаровании
-// // // console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
-// // // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America", "Hulk", "Spider-Man"]
+// ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ РАСПЫЛЕНИИ
+const copyOfMarvelHeroes = [...marvelHeroes, "Hulk", "Spider-Man"];
+// можно добавить элементы при кописаровании
+console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
+// ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America", "Hulk", "Spider-Man"]
 
-// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ полностью
-// // const firstNum = [1, 2, 3];
-// // const secondNum = [4, 5, 6];
+// КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ полностью
+const firstNum = [1, 2, 3];
+const secondNum = [4, 5, 6];
 
-// // const allNums = [...firstNum, ...secondNum];
-// // // const allNums = firstNum.concat(secondNum); // альтернатива concat()
+const allNums = [...firstNum, ...secondNum];
+// const allNums = [...secondNum, ...firstNum];
+// const allNums = firstNum.concat(secondNum); // альтернатива concat()
 
-// // console.log(allNums); // [1, 2, 3, 4, 5, 6]
+console.log(allNums); // [1, 2, 3, 4, 5, 6]
 
-// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ частично
-// // const notAllNums = [...firstNum.slice(0, 1), ...secondNum.slice(-1)];
-// // console.log(notAllNums); // [1, 6]
+// КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ частично
+const notAllNums = [...firstNum.slice(0, 1), ...secondNum.slice(-1)];
+console.log("notAllNums", notAllNums); // [1, 6]
 
-// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ с добавлением элемента извне
-// // const updatedNums = [
-// //   ...firstNum.slice(0, 2),
-// //   "Js is the best",
-// //   ...secondNum.slice(-2)
-// // ];
-// // console.log(updatedNums); // [1, 2, "Js is the best", 5, 6]
+// КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ с добавлением элемента извне
+const updatedNums = [
+  ...firstNum.slice(0, 2),
+  "Js is the best",
+  ...secondNum.slice(-2)
+];
+console.log("updatedNums", updatedNums); // [1, 2, "Js is the best", 5, 6]
 
-// // // ... - spread (распыление объеков) как альтернатива Object.assign()
-// // // В литерале объекта, при создании нового объекта
-// // const mod_1 = { test: 2, hw: 3 };
-// // const mod_2 = { test: 4, hw: 6, addit: 2 };
+// ... - spread (распыление объектов) как альтернатива Object.assign()
+// В литерале объекта, при создании нового объекта
+const mod_1 = { test: 2, hw: 3, addit: 2 };
+const mod_2 = { test: 4, hw: 6 };
 
-// // // const mod_3 = Object.assign({}, mod_1, mod_2);
-// // // console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
+// const mod_3 = Object.assign({}, mod_1, mod_2);
+// console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
 
-// // // ... - spread
-// // const mod_3 = { ...mod_1, ...mod_2 };
-// // console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
+// ... - spread
+const mod_3 = { ...mod_1, ...mod_2 };
+console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
 
-// // // !!! ВНИМАТЕЛЬНО !!! если свойства (ключи) перед распылением совпадают
-// // const a = { x: 1, y: 2 };
-// // const b = { x: 0, z: 3 };
-// // const c = { x: 5, j: 10, ...a, z: 15, ...b };
-// // console.log(c); // {x: 0, j: 10, y: 2, z: 3}
+// !!! ВНИМАТЕЛЬНО !!! если свойства (ключи) перед распылением совпадают
+const a = { x: 1, y: 2 };
+const b = { x: 0, z: 3 };
 
+// const c = { x: 5, j: 10, ...a, z: 15, ...b };
+// console.log(c); // {x: 0, j: 10, y: 2, z: 3}
+
+const c = { ...a, ...b, x: 5, j: 10, z: 15 };
+console.log(c); //
 // // // ... - REST (сбор аргументов) - немного затронули в функциях (модуль 2)
 // // const add1 = function(...args) {
 // //   console.log("add1 args", args); // массив всех аргументов
