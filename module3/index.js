@@ -1,13 +1,13 @@
 "use strict";
-// // OBJECTS
+// OBJECTS
 
-// // const object = {
-// //   key: value,
-// //   key: value // СВОЙСТВО ОБЪЕКТА состоит из ключа и значения
-// //   // "key" || _key || $key - string : value - primitive, array, object, function
-// //   //
-// // };
-// // объект НЕЛЬЗЯ использовать до объявления
+// const object = {
+//   key: value,
+//   key: value // СВОЙСТВО ОБЪЕКТА состоит из ключа и значения
+//   // "key" || _key || $key - string : value - primitive, array, object, function
+//   //
+// };
+// объект НЕЛЬЗЯ использовать до объявления
 
 // const frontend = {
 //   language_1: "HTML",
@@ -170,11 +170,11 @@
 
 // // ПЕРЕБОР ОБЪЕКТА (не так, как массив)
 
-// // цикл for...in - только для объектов, перебирает ключи объекта
-// //          OBJECT                        ARRAY
-// // for (let key in object) { || for (let el of array) {
-// //     // statements         ||       // statements
-// // }                         || }
+// цикл for...in - только для объектов, перебирает ключи объекта
+//          OBJECT                        ARRAY
+// for (let key in object) { || for (let el of array) {
+//     // statements         ||       // statements
+// }                         || }
 
 // const myCars = {
 //   subaru: "Forester",
@@ -286,137 +286,137 @@
 // // console.log("возраст Дани сейчас", age);
 // // // =============== ARRAY ====================
 
-// ДОП ЗАНЯТИЕ
-// // // ... - SPREAD (распыление аргументов)
-// // // Во время вызова функции, для передачи массива элементов отдельными аргументами
-const test1 = [18, 14, 12, 21, 17, 29];
-const minTest1 = Math.min(test1);
-console.log(minTest1); // NaN
+// // ДОП ЗАНЯТИЕ
+// // // // ... - SPREAD (распыление аргументов)
+// // // // Во время вызова функции, для передачи массива элементов отдельными аргументами
+// const test1 = [18, 14, 12, 21, 17, 29];
+// const minTest1 = Math.min(test1);
+// console.log(minTest1); // NaN
 
-const test2 = [18, 14, 12, 21, 17, 29];
-const minTest2 = Math.min(...test2);
-console.log(minTest2); // 12
+// const test2 = [18, 14, 12, 21, 17, 29];
+// const minTest2 = Math.min(...test2);
+// console.log(minTest2); // 12
 
-// ... - spread (распыление массивов) - альтернатива slice() - копирование массива
-// В литерале массива, при создании нового массив
-const marvelHeroes = [
-  "Captain Marvel",
-  "Thanos",
-  "Black Panter",
-  "Goose the Cat",
-  "Black Widow",
-  "Captain America"
-];
-console.log("marvelHeroes", marvelHeroes);
+// // ... - spread (распыление массивов) - альтернатива slice() - копирование массива
+// // В литерале массива, при создании нового массив
+// const marvelHeroes = [
+//   "Captain Marvel",
+//   "Thanos",
+//   "Black Panter",
+//   "Goose the Cat",
+//   "Black Widow",
+//   "Captain America"
+// ];
+// console.log("marvelHeroes", marvelHeroes);
 
-const copyOfMarvelHeroes = [...marvelHeroes];
-// const copyOfMarvelHeroes = marvelHeroes.slice(); // то же самое
+// const copyOfMarvelHeroes = [...marvelHeroes];
+// // const copyOfMarvelHeroes = marvelHeroes.slice(); // то же самое
 
-console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
+// console.log("copyOfMarvelHeroes", copyOfMarvelHeroes);
 
-console.log(
-  "marvelHeroes === copyOfMarvelHeroes",
-  marvelHeroes === copyOfMarvelHeroes
-); // false - разные ссылки
+// console.log(
+//   "marvelHeroes === copyOfMarvelHeroes",
+//   marvelHeroes === copyOfMarvelHeroes
+// ); // false - разные ссылки
 
-// // ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ РАСПЫЛЕНИИ
-const newCopyOfMarvelHeroes = [...marvelHeroes, "Hulk", "Spider-Man"];
-// // можно добавить элементы при кописаровании
-console.log("new copyOfMarvelHeroes", newCopyOfMarvelHeroes);
-// // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America", "Hulk", "Spider-Man"]
+// // // ДОБАВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ РАСПЫЛЕНИИ
+// const newCopyOfMarvelHeroes = [...marvelHeroes, "Hulk", "Spider-Man"];
+// // // можно добавить элементы при кописаровании
+// console.log("new copyOfMarvelHeroes", newCopyOfMarvelHeroes);
+// // // ["Captain Marvel", "Thanos", "Black Panter", "Goose the Cat", "Black Widow", "Captain America", "Hulk", "Spider-Man"]
 
-// // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ полностью
-const firstNum = [1, 2, 3];
-const secondNum = [4, 5, 6];
+// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ полностью
+// const firstNum = [1, 2, 3];
+// const secondNum = [4, 5, 6];
 
-const allNums1 = [...firstNum, ...secondNum];
-console.log("... allNums1", allNums1);
-const allNumsReverse1 = [...secondNum, ...firstNum];
-console.log("... allNumsReverse1", allNumsReverse1);
+// const allNums1 = [...firstNum, ...secondNum];
+// console.log("... allNums1", allNums1);
+// const allNumsReverse1 = [...secondNum, ...firstNum];
+// console.log("... allNumsReverse1", allNumsReverse1);
 
-const allNums2 = firstNum.concat(secondNum);
-console.log("concat allNums2", allNums2);
-const allNumsReverse2 = secondNum.concat(firstNum);
-console.log("concat allNumsReverse2", allNumsReverse2);
+// const allNums2 = firstNum.concat(secondNum);
+// console.log("concat allNums2", allNums2);
+// const allNumsReverse2 = secondNum.concat(firstNum);
+// console.log("concat allNumsReverse2", allNumsReverse2);
 
-// // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ частично
-const notAllNums = [...firstNum.slice(0, 1), ...secondNum.slice(-1)];
-console.log("notAllNums", notAllNums); // [1, 6]
+// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ частично
+// const notAllNums = [...firstNum.slice(0, 1), ...secondNum.slice(-1)];
+// console.log("notAllNums", notAllNums); // [1, 6]
 
-// // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ с добавлением элемента извне
-const updatedNums = [
-  ...firstNum.slice(0, 2),
-  "Js is the best",
-  ...secondNum.slice(-2)
-];
-console.log("updatedNums", updatedNums); // [1, 2, "Js is the best", 5, 6]
+// // // КОНКАТЕНАЦИЯ МАССИВОВ ПРИ РАСПЫЛЕНИИ с добавлением элемента извне
+// const updatedNums = [
+//   ...firstNum.slice(0, 2),
+//   "Js is the best",
+//   ...secondNum.slice(-2)
+// ];
+// console.log("updatedNums", updatedNums); // [1, 2, "Js is the best", 5, 6]
 
-const Ilia = ["fruits", "spagetti", "ferrari", "pizza"];
-const Dania_Pacypack = ["lazy", "apple", "banana"];
+// const Ilia = ["fruits", "spagetti", "ferrari", "pizza"];
+// const Dania_Pacypack = ["lazy", "apple", "banana"];
 
-const Eva = [...Ilia.slice(1, 2), "water", ...Dania_Pacypack.slice(1, 2)];
+// const Eva = [...Ilia.slice(1, 2), "water", ...Dania_Pacypack.slice(1, 2)];
 
-console.log("new array", Eva);
+// console.log("new array", Eva);
 
-// // ... - spread (распыление объектов) как альтернатива Object.assign()
-// // В литерале объекта, при создании нового объекта
-const mod_1 = { test: 2, hw: 3, addit: 2 };
-const mod_2 = { test: 4, hw: 6 };
+// // // ... - spread (распыление объектов) как альтернатива Object.assign()
+// // // В литерале объекта, при создании нового объекта
+// const mod_1 = { test: 2, hw: 3, addit: 2 };
+// const mod_2 = { test: 4, hw: 6 };
 
-const mod_3 = Object.assign({}, mod_1, mod_2);
+// const mod_3 = Object.assign({}, mod_1, mod_2);
+// // // console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
+// let name;
+
+// const Vania = { basketball: "professional", name };
+// Vania.name = "Vania";
+
+// const Felix = { speakEnglish: "fluence", name };
+// const Yarik = { hardWork: "very much", name };
+// const Kot = { loveMathematics: "a lot", name };
+// Kot.name = "Nikita";
+
+// const myBestStudents = Object.assign({}, Vania, Felix, Yarik, Kot);
+// console.log("myBestStudents", myBestStudents);
+// // // ... - spread
+
+// const myNewBestStudents = { ...Vania, ...Felix, ...Yarik, ...Kot };
+// console.log(myNewBestStudents);
+// // const mod_3 = { ...mod_1, ...mod_2 };
 // // console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
-let name;
 
-const Vania = { basketball: "professional", name };
-Vania.name = "Vania";
+// // // !!! ВНИМАТЕЛЬНО !!! если свойства (ключи) перед распылением совпадают
+// const a = { x: 1, y: 2 };
+// const b = { x: 0, z: 3 };
 
-const Felix = { speakEnglish: "fluence", name };
-const Yarik = { hardWork: "very much", name };
-const Kot = { loveMathematics: "a lot", name };
-Kot.name = "Nikita";
+// const c = { x: 5, j: 10, ...a, z: 15, ...b };
+// // x - 5, j - 10
+// // x - 1,       , y - 2
+// //                     , z - 15
+// // x - 0,              , z - 3
+// // {x: 0, j: 10, y: 2, z: 3}
+// // // console.log(c);
 
-const myBestStudents = Object.assign({}, Vania, Felix, Yarik, Kot);
-console.log("myBestStudents", myBestStudents);
-// // ... - spread
+// const cNew = { ...a, ...b, x: 5, j: 10, z: 15 };
+// console.log(cNew); // {x: 5, y: 2, z: 15, j: 10}
 
-const myNewBestStudents = { ...Vania, ...Felix, ...Yarik, ...Kot };
-console.log(myNewBestStudents);
-// const mod_3 = { ...mod_1, ...mod_2 };
-// console.log("mod_3", mod_3); // {test: 4, hw: 6, addit: 2}
+// // ... - REST (сбор аргументов) - немного затронули в функциях (модуль 2)
+// const showTestsScore = function(...args) {
+//   console.log("showTestsScore args", args); // массив всех аргументов
+// };
 
-// // !!! ВНИМАТЕЛЬНО !!! если свойства (ключи) перед распылением совпадают
-const a = { x: 1, y: 2 };
-const b = { x: 0, z: 3 };
+// showTestsScore(17, 22, 23);
+// showTestsScore(1, 2, 3, 4, 5);
+// showTestsScore("Dania", "Vania", "Eva", "Yarik", "Kot", "Nikitchyn");
 
-const c = { x: 5, j: 10, ...a, z: 15, ...b };
-// x - 5, j - 10
-// x - 1,       , y - 2
-//                     , z - 15
-// x - 0,              , z - 3
-// {x: 0, j: 10, y: 2, z: 3}
-// // console.log(c);
+// const add2 = function(value1, value2, ...args) {
+//   console.log("add2 value1", value1); // первый аргумент
+//   console.log("add2 value2", value2); // первый аргумент
 
-const cNew = { ...a, ...b, x: 5, j: 10, z: 15 };
-console.log(cNew); // {x: 5, y: 2, z: 15, j: 10}
+//   console.log("add2 args", args); // массив всех остальных аргументов
+// };
 
-// ... - REST (сбор аргументов) - немного затронули в функциях (модуль 2)
-const showTestsScore = function(...args) {
-  console.log("showTestsScore args", args); // массив всех аргументов
-};
-
-showTestsScore(17, 22, 23);
-showTestsScore(1, 2, 3, 4, 5);
-showTestsScore("Dania", "Vania", "Eva", "Yarik", "Kot", "Nikitchyn");
-
-const add2 = function(value1, value2, ...args) {
-  console.log("add2 value1", value1); // первый аргумент
-  console.log("add2 value2", value2); // первый аргумент
-
-  console.log("add2 args", args); // массив всех остальных аргументов
-};
-
-add2("Номер теста", "Student", 10, 1, 2, 3);
-add2("Номер теста", "Student", 15, 1, 2, 3, 4, 5);
+// add2("Номер теста", "Student", 10, 1, 2, 3);
+// add2("Номер теста", "Student", 15, 1, 2, 3, 4, 5);
 
 // Д Е С Т Р У К Т У Р И З А Ц И Я объектов {object}
 
@@ -430,41 +430,49 @@ const hotel = {
 };
 console.log(hotel);
 // Объявим переменные и присвоим им значения из объекта
-const { hotelName, stars, status = 5 } = hotel;
-
+const { hotelName, stars, capacity } = hotel;
+console.log(hotel);
 console.log(`hotelName - ${hotelName}, stars - ${stars}, status - ${status}`); // "Resort Hotel", 5, undefined
 
-// == Присвоения undefined можно избежать, задав переменным значения по умолчанию,
-// в случае если такого свойства в объекте нет.
-const hotel2 = {
-  name2: "Resort Hotel",
-  stars2: 5,
-  capacity2: 100
-};
+let myProducts = { fruits: "apples", vegetables: "tomatoes", meat: "ghghgh" };
+console.log(myProducts.fruits); // до деструктуризации
 
-const { name2 = "hotel", stars2 = 3, status2 = "empty" } = hotel2;
+let { fruits, vegetables } = myProducts;
+console.log(fruits); // apples - после деструктуризации
+console.log(vegetables); // tomatoes
+// console.log(myProducts); // { fruits: "apples", vegetables: "tomatoes" }
 
-console.log(name2, stars2, status2); // "Resort Hotel", 5, "empty"
+// // == Присвоения undefined можно избежать, задав переменным значения по умолчанию,
+// // в случае если такого свойства в объекте нет.
+// const hotel2 = {
+//   name2: "Resort Hotel",
+//   stars2: 5,
+//   capacity2: 100
+// };
 
-// == можно переопределить имена в процессе присвоения.
-// Сначала пишем имя свойства из которого мы хотим получить значение,
-// после чего ставим двоеточие и пишем имя переменной в которую хотим поместить
-// значение этого свойства.
+// const { name2 = "hotel", stars2 = 3, status2 = "empty" } = hotel2;
 
-const hotel3 = {
-  name3: "Resort Hotel",
-  stars3: 5,
-  capacity3: 100
-};
+// console.log(name2, stars2, status2); // "Resort Hotel", 5, "empty"
 
-const { name3: hotelName3, stars3, status3: hotelStatus3 = "empty" } = hotel3;
+// // == можно переопределить имена в процессе присвоения.
+// // Сначала пишем имя свойства из которого мы хотим получить значение,
+// // после чего ставим двоеточие и пишем имя переменной в которую хотим поместить
+// // значение этого свойства.
 
-console.log(hotelName3, stars3, hotelStatus3); // "Resort Hotel", 5, "empty"
+// const hotel3 = {
+//   name3: "Resort Hotel",
+//   stars3: 5,
+//   capacity3: 100
+// };
 
-// == можно делать частичную деструктуризацию, взяв из объекта необходимые поля,
-// а остальное собрать в переменную под именем rest (имя переменной произвольное),
-// это будет объект с теми полями, которые мы явно не деструктуризировали
-// в переменные.
+// const { name3: hotelName3, stars3, status3: hotelStatus3 = "empty" } = hotel3;
+
+// console.log(hotelName3, stars3, hotelStatus3); // "Resort Hotel", 5, "empty"
+
+// // == можно делать частичную деструктуризацию, взяв из объекта необходимые поля,
+// // а остальное собрать в переменную под именем rest (имя переменной произвольное),
+// // это будет объект с теми полями, которые мы явно не деструктуризировали
+// // в переменные.
 const hotel4 = {
   name4: "Resort Hotel",
   stars4: 5,
@@ -472,54 +480,58 @@ const hotel4 = {
   fgfgfg: ""
 };
 
-const { name4, ...rest } = hotel4;
+const { name4, ...newObj } = hotel4;
 
-console.log(name4); // "Resort Hotel"
-console.log(rest); // {stars: 5, capacity: 100}
+console.log("hotel4 name4", name4); // "Resort Hotel"
+console.log("hotel4 rest", newObj); // {stars: 5, capacity: 100}
+console.log(hotel4);
 
 // Д Е С Т Р У К Т У Р И З А Ц И Я массивов [array]
 
-// В результате такой записи будут созданы 3 переменные и в них будут помещены
-// элементы в нумерованом порядке, от 0 до конца массива.
+// // В результате такой записи будут созданы 3 переменные и в них будут помещены
+// // элементы в нумерованом порядке, от 0 до конца массива.
 
 const rgb = [100, 205, 100];
 
 const [red, green, blue] = rgb;
 
-console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}`);
-// // // // Red: 100, Green: 205, Blue: 100
+// console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}`);
+// // // // // Red: 100, Green: 205, Blue: 100
 
-// При деструктуризации массивов переменной может быть присвоено значение
-// отдельно от ее объявления.
-const rgb1 = [200, 255, 100];
-let red1, green1, blue1;
+// const // При деструктуризации массивов переменной может быть присвоено значение
+//   // отдельно от ее объявления.
+//   // const rgb1 = [200, 255, 100];
+//   // let = red1, green1, blue1;
 
-[red1, green1, blue1] = rgb1;
+//   [red1, green1, blue1] = rgb1;
 
-console.log(`Red: ${red1}, Green: ${green1}, Blue: ${blue1}`);
-// Red: 200, Green: 255, Blue: 100
+// console.log(`Red: ${red1}, Green: ${green1}, Blue: ${blue1}`);
+// // Red: 200, Green: 255, Blue: 100
 
-// // // // Если переменных больше чем элементов массива, им будет присвоено undefined,
-// // // // поэтому можно указывать значения по умолчанию.
-// // // const rgb2 = [200, 100, 255];
+// // Если переменных больше чем элементов массива, им будет присвоено undefined,
+// // поэтому можно указывать значения по умолчанию.
+const rgb2 = [200, 100, 255];
 
-// // // const [red2, green2, blue2, alfa2 = 0.3] = rgb2;
+const [red2, green2, blue2, alfa2 = 5] = rgb2;
+console.log(alfa2);
+// console.log(`Red: ${red2}, Green: ${green2}, Blue: ${blue2}, Alfa: ${alfa2}`);
+// // Red: 200, Green: 100, Blue: 255, Alfa: 0.3
 
-// // // console.log(`Red: ${red2}, Green: ${green2}, Blue: ${blue2}, Alfa: ${alfa2}`);
-// // // // Red: 200, Green: 100, Blue: 255, Alfa: 0.3
+// // можно распаковать и присвоить оставшуюся часть элементов массива переменной
+const rgb3 = [200, 255, 100];
 
-// // // // можно распаковать и присвоить оставшуюся часть элементов массива переменной
-// // // const rgb3 = [200, 255, 100];
+const [red3, ...colors] = rgb3;
+console.log(red3); // 200 - переменная
+console.log(colors); // [255, 100] - скопирован по ссылке
 
-// // // const [red3, ...colors] = rgb3;
+// и будет принимать все изменения исходного массива
+console.log(`Red: ${red3}, Colors: ${colors}`);
+// // Red: 200, Colors: [255, 100]
 
-// // // console.log(`Red: ${red3}, Colors: ${colors}`);
-// // // // Red: 200, Colors: [255, 100]
+// // Элементы можно пропускать. Допустим из массива rgb необходимо взять только последнее значение.
+// // Используется это крайне редко.
+const rgb4 = [200, 100, 255];
 
-// // // // Элементы можно пропускать. Допустим из массива rgb необходимо взять только последнее значение.
-// // // // Используется это крайне редко.
-// // // const rgb4 = [200, 100, 255];
+const [, , blue4] = rgb4;
 
-// // // const [, , blue4] = rgb4;
-
-// // // console.log(`Blue: ${blue4}`); // Blue: 255
+console.log(`Blue: ${blue4}`); // Blue: 255
