@@ -65,6 +65,12 @@
 
 // let result = (alfa * 10 + beta * 10) / 10;
 // console.log(result);
+
+let alfa = (0.2 * 10) % 10;
+let beta = (0.4 * 10) % 10;
+
+let result = alfa + beta;
+console.log(result);
 // ============== 4 ===============================================
 // объяви переменную tetra
 // присвой ей значения: 12px, 13.34em,

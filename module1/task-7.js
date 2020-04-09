@@ -60,3 +60,31 @@
 //   default:
 //     alert(`Доставка в ${country} будет стоить ${countryPay} кредитов`);
 // }
+// =============================================================================
+// let Country;
+// let PriceChina = 100;
+// let PriceChili = 250;
+// let PriceAustralia = 170;
+// let PriceIndia = 80;
+// let PriceJamaika = 120;
+// switch ((Country = prompt("Введи страну").toLowerCase())) {
+//   case "china":
+//     alert(`Доставка в ${Country} будет стоить ${PriceChina} кредитов`);
+//     break;
+//   case "chili":
+//     alert(`Доставка в ${Country} будет стоить ${PriceChili} кредитов`);
+//     break;
+//   case "austalia":
+//     alert(`Доставка в ${Country} будет стоить ${PriceAustralia} кредитов`);
+//     break;
+//   case "india":
+//     alert(`Доставка в ${Country} будет стоить ${PriceIndia} кредитов`);
+//     break;
+//   case "jamaika":
+//     alert(`Доставка в ${Country} будет стоить ${PriceJamaika} кредитов`);
+//     break;
+
+//   default:
+//     alert(`В страну "${Country}" достава не доступна :(`);
+// }
+// ===========================================================================
