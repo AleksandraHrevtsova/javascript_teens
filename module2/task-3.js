@@ -11,33 +11,20 @@
 
 // ======== mine ==========================
 // FUNCTION EXPRESSION
-// const toPassTests = function() {
-//   console.log(
-//     "Прежде, чем выполнить это задание у тебя должно быть сдано пять тестов!"
-//   );
-// };
+const toPassTests = function () {
+  console.log(
+    "Прежде, чем выполнить это задание у тебя должно быть сдано пять тестов!"
+  );
+};
 // ARROW FUNCTION
-// const toPassTests = () =>
-//   console.log(
-//     "Прежде чем, как выполнить это задание у тебя должно быть сдано пять тестов!"
-//   );
-// // вызов функции
-// toPassTests();
+const toPassTests = () =>
+  console.log(
+    "Прежде чем, как выполнить это задание у тебя должно быть сдано пять тестов!"
+  );
+// вызов функции
+toPassTests();
 // ======== mine ==========================
-// Ilia =============
-//FUNCTION EXPRESSIONS
-// let toPassTests = function() {
-//   alert(
-//     "Прежде, чем выполнить это задание у тебя должно быть сдано пять тестов!"
-//   );
-// };
-//ARROW FUNCTION
-// let toPassTests = () =>
-//   alert(
-//     "Прежде, чем выполнить это задание у тебя должно быть сдано пять тестов!"
-//   );
 
-// toPassTests();
 // ============== 2 ===============================================
 // Напиши функцию checkAge как FUNCTION EXPRESSION (функциональное выражение через переменную)
 // и как ARROW FUNCTION (стрелочная функция),
@@ -49,18 +36,18 @@
 // убедись, что функция выполнилась при любом ее выражении
 
 // ======== mine ==========================
-// let age;
-// // FUNCTION EXPRESSION
+let age;
+// FUNCTION EXPRESSION
 // == 1 ==
-// const checkAge = function(age) {
-//   age = +prompt("Enter your age please");
-//   if (age >= 18) {
-//     return alert("Here you are! You are got access!");
-//   } else {
-//     return alert("Sorry, you can`t to get access");
-//   }
-// };
-//== 2 ==
+const checkAge = function (age) {
+  age = +prompt("Enter your age please");
+  if (age >= 18) {
+    return alert("Here you are! You are got access!");
+  } else {
+    return alert("Sorry, you can`t to get access");
+  }
+};
+// // == 2 ==
 // const checkAge = function(age) {
 //   age = +prompt("Enter your age please");
 //   if (age >= 18) {
@@ -68,30 +55,16 @@
 //   }
 //   return alert("Sorry, you can`t to get access");
 // };
+
 // // ARROW FUNCTION
-// const checkAge = age =>
-//   (age = +prompt("") >= 18)
-//     ? alert("Here you are! You are got access!")
-//     : alert("Sorry, you can`t to get access");
+const checkAge = (age) =>
+  (age = +prompt("") >= 18)
+    ? alert("Here you are! You are got access!")
+    : alert("Sorry, you can`t to get access");
 // // вызов функции
-// checkAge();
+checkAge();
 // ======== mine ==========================
-// let message = prompt("Please enter your age");
-// const checkAge = function(message) {
-//   if (message < 18) {
-//     console.log("Sorry, you can't access this site");
-//   } else {
-//     console.log("Access granted");
-//   }
-// };
-// checkAge(message);
 
-// let checkAge2 = message =>
-//   message <= 18
-//     ? console.log("Sorry, you can't access this site")
-//     : console.log("Access granted");
-
-// checkAge2(message);
 // ============== 3 ===============================================
 // Напиши скрипт подсчета стоимости гравировки украшений.
 // Для этого создай функцию toGetCost(message, pricePerWord)
@@ -102,13 +75,10 @@
 // убедись, что функция выполнилась при любом ее выражении
 
 // // ======== mine ==========================
-// // // == function EXPRESSION ==
+// // == function EXPRESSION ==
 // const toGetCost = function(message, pricePerWord) {
-//   // console.log(message);
 //   let words = message.split(" ");
-//   // console.log(words);
 //   let wordsCount = words.length;
-//   // return (pricePerWord = wordsCount * Number(pricePerWord));
 //   // return (pricePerWord = wordsCount * pricePerWord);
 //   return (pricePerWord *= wordsCount);
 // };
@@ -117,27 +87,6 @@
 // // const toGetCost = (message, pricePerWord) =>
 // //   (pricePerWord *= message.split(" ").length);
 // // ======== mine ==========================
-// ======================== --- ========
-// function toGetCost(message, pricePerWord) {
-//   let messageArr = message.split(" ");
-//   let wordCount = messageArr.length;
-//   return wordCount * pricePerWord;
-// }
-
-// let toGetCost = (message, pricePerWord) => {
-//   let messageArr = message.split(" ");
-//   let wordCount = messageArr.length;
-//   return wordCount * pricePerWord;
-// };
-// ======================== --- ========
-// let toGetCost = function(message, pricePerWord) {
-//   let words = message.split(" ");
-//   let countWords = words.length;
-//   return (pricePerWord = countWords * pricePerWord);
-// };
-// //ARROW FUNCTION
-// let toGetCost = (message, pricePerWord) =>
-//   (pricePerWord *= message.split(" ").length);
 
 // // Вызовы функции для проверки кода
 // console.log(toGetCost("To be, or not to be, that is the question", 10)); // 100
@@ -163,12 +112,8 @@
 //   }
 // };
 // // ======== mine ==========================
-// function logItems(array) {
-//   for (let i = 0; i < array.length; i += 1) {
-//     console.log(`${i + 1} - ${array[i]}`);
-//   }
-// }
-// // // Вызовы функции для проверки кода
+
+// // Вызовы функции для проверки кода
 // logItems([
 //   "Wolverine",
 //   "Thor",
@@ -203,35 +148,6 @@
 //     ? true
 //     : false;
 // // ======== mine ==========================
-// Илья Дмитренко
-// let words;
-// let checkTheWord = function(message) {
-//   let words = message.split(" ");
-//   if (words.includes("lose") || words.includes("not")) {
-//     return true;
-//   }
-//   return false;
-// };
-// // ARROW FUNCTION
-// const checkTheWord = message =>
-//   message.split(" ").includes("lose") || message.split(" ").includes("not")
-//     ? true
-//     : false;
-// Илья Дмитренко
-// function checkTheWord(message) {
-//   let array = message.split(" ");
-//   console.log(array);
-//   if (array.includes("lose") || array.includes("not")) {
-//     return true;
-//   }
-//   return false;
-// }
-
-// let checkTheWord = (message) => {
-//     let array = message.split(" ");
-//     console.log(array);
-//     return array.includes("lose" || "not")
-// }
 
 // // Вызовы функции для проверки кода
 // console.log(checkTheWord("Than fly to others that we know not of?")); // true
@@ -255,14 +171,7 @@
 //   return console.log("тот", totalSum);
 // };
 // ======== mine ==========================
-// function countTestsScore() {
-//   let total = 0;
 
-//   for (const argument of arguments) {
-//     total += argument;
-//   }
-//   console.log(total);
-// }
 // // Вызовы функции для проверки кода
 // countTestsScore(16, 22, 23); // 61
 // countTestsScore(15, 20, 22, 20); // 77
@@ -276,18 +185,8 @@
 // // ======== mine ==========================
 // const myNewArrowFunction = (...args) => console.log(args);
 // // ======== mine ==========================
-// const myNewArrowFunction = (...args) => console.log(args);
+
 // // Вызовы функции для проверки кода
 // myNewArrowFunction(1, 2, 3); // [1, 2, 3]
 // myNewArrowFunction(100, 200, 300, 400, 500); // [100, 200, 300, 400, 500]
 // myNewArrowFunction("Js", "Python", "Java", "PHP", "C++"); // ["Js", "Python", "Java", "PHP", "C++"]
-
-// ========================= \\
-// const par = [];
-
-// const func = function(par) {
-//   console.log(par);
-// };
-
-// func(1, 2, 3);
-
