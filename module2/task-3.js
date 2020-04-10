@@ -9,21 +9,21 @@
 // и вызови эту функцию
 // убедись, что функция выполнилась при любом ее выражении
 
-// ======== mine ==========================
-// FUNCTION EXPRESSION
-const toPassTests = function () {
-  console.log(
-    "Прежде, чем выполнить это задание у тебя должно быть сдано пять тестов!"
-  );
-};
-// ARROW FUNCTION
-const toPassTests = () =>
-  console.log(
-    "Прежде чем, как выполнить это задание у тебя должно быть сдано пять тестов!"
-  );
-// вызов функции
-toPassTests();
-// ======== mine ==========================
+// // ======== mine ==========================
+// // FUNCTION EXPRESSION
+// const toPassTests = function () {
+//   console.log(
+//     "Прежде, чем выполнить это задание у тебя должно быть сдано пять тестов!"
+//   );
+// };
+// // ARROW FUNCTION
+// const toPassTests = () =>
+//   console.log(
+//     "Прежде чем, как выполнить это задание у тебя должно быть сдано пять тестов!"
+//   );
+// // вызов функции
+// toPassTests();
+// // ======== mine ==========================
 
 // ============== 2 ===============================================
 // Напиши функцию checkAge как FUNCTION EXPRESSION (функциональное выражение через переменную)
@@ -35,35 +35,35 @@ toPassTests();
 // и вызови эту функцию
 // убедись, что функция выполнилась при любом ее выражении
 
-// ======== mine ==========================
-let age;
-// FUNCTION EXPRESSION
-// == 1 ==
-const checkAge = function (age) {
-  age = +prompt("Enter your age please");
-  if (age >= 18) {
-    return alert("Here you are! You are got access!");
-  } else {
-    return alert("Sorry, you can`t to get access");
-  }
-};
-// // == 2 ==
-// const checkAge = function(age) {
+// // ======== mine ==========================
+// let age;
+// // FUNCTION EXPRESSION
+// // == 1 ==
+// const checkAge = function (age) {
 //   age = +prompt("Enter your age please");
 //   if (age >= 18) {
 //     return alert("Here you are! You are got access!");
+//   } else {
+//     return alert("Sorry, you can`t to get access");
 //   }
-//   return alert("Sorry, you can`t to get access");
 // };
+// // // == 2 ==
+// // const checkAge = function(age) {
+// //   age = +prompt("Enter your age please");
+// //   if (age >= 18) {
+// //     return alert("Here you are! You are got access!");
+// //   }
+// //   return alert("Sorry, you can`t to get access");
+// // };
 
-// // ARROW FUNCTION
-const checkAge = (age) =>
-  (age = +prompt("") >= 18)
-    ? alert("Here you are! You are got access!")
-    : alert("Sorry, you can`t to get access");
-// // вызов функции
-checkAge();
-// ======== mine ==========================
+// // // ARROW FUNCTION
+// const checkAge = (age) =>
+//   (age = +prompt("") >= 18)
+//     ? alert("Here you are! You are got access!")
+//     : alert("Sorry, you can`t to get access");
+// // // вызов функции
+// checkAge();
+// // ======== mine ==========================
 
 // ============== 3 ===============================================
 // Напиши скрипт подсчета стоимости гравировки украшений.
@@ -190,3 +190,4 @@ checkAge();
 // myNewArrowFunction(1, 2, 3); // [1, 2, 3]
 // myNewArrowFunction(100, 200, 300, 400, 500); // [100, 200, 300, 400, 500]
 // myNewArrowFunction("Js", "Python", "Java", "PHP", "C++"); // ["Js", "Python", "Java", "PHP", "C++"]
+
