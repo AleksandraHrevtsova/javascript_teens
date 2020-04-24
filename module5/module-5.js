@@ -199,3 +199,6 @@ const Guest = function (name, room) {
   this.name = name;
   this.room = room;
 };
+console.log(Guest.prototype);
+
+fvahdfvaehfawgfkhwfkwq;
