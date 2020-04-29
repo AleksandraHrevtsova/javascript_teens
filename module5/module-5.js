@@ -64,11 +64,12 @@ const Human = function (arms = null, legs = null, head = 1, body = 1) {
   this.legs = legs;
   this.head = head;
   this.body = body;
+  this.name = "user";
 };
-const Ilia = new Human(2, 2);
+const Ilia = new Human(2, 2); // {arms: 2, legs: 2, head: 1, body: 1, name: "user"}
 console.log(Ilia);
 
-const Dima = new Human();
+const Dima = new Human(); // {arms: null, legs: null, head: 1, body: 1, name: "user"}
 console.log(Dima);
 
 // внутренние методы
@@ -273,13 +274,11 @@ console.log(childProdKeys);
 // Свойство F.prototype - объект с методом constructor, в него можно записывать
 // свойства и методы, кот удут доступны по ссылке в __proto__
 const Guest = function (name, room) {
-  this.name = name;
-  this.room = room;
+  this.name = name; // свойство, запишется в тело объекта
+  this.room = room; // свойство, запишется в тело объекта
+  // this.newMethod(){} // метод, запишется в тело объекта
 };
 console.log("объект с методом constructor", Guest.prototype);
-
-const newGuest = new Guest("ALeks", 30);
-console.log("newGuest", newGuest); // новый экземпляр
 
 Guest.prototype.newMethod = function () {
   // добавляем метод в ф-к,
@@ -288,6 +287,8 @@ Guest.prototype.newMethod = function () {
     `метод функции-конструктора - name: ${this.name}, room: ${this.room}`
   );
 };
+const newGuest = new Guest("ALeks", 30);
+console.log("newGuest", newGuest); // новый экземпляр
 
 newGuest.newMethod(); // применяем новый метод ф-к к потомку, он работает
 
@@ -341,32 +342,3 @@ poly.attack(); // Poly attacks with sword
 
 // poly.gainXp(); // Uncaught TypeError: poly.gainXp is not a function
 // не работает, надо явно привязать методы
-
-// true
-// const Hero1 = function (name, xp) {
-//   this.name = name;
-//   this.xp = xp;
-// };
-
-// Hero1.prototype.gainXp = function (amount) {
-//   console.log(`${this.name} gained ${amount} experience points`);
-//   this.xp += amount;
-// };
-
-// const Warrior1 = function (name, xp, weapon) {
-//   Hero1.call(this, name, xp);
-
-//   this.weapon = weapon;
-// };
-
-// Warrior1.prototype = Object.create(Hero1.prototype);
-// Warrior1.prototype.constructor = Warrior1;
-
-// Warrior1.prototype.attack = function () {
-//   console.log(`${this.name} attacks with ${this.weapon}`);
-// };
-
-// const poly1 = new Warrior1("Poly", 200, "sword");
-// poly.attack(); // Poly attacks with sword
-
-// // poly.gainXp();
