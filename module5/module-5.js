@@ -97,6 +97,7 @@ const Movie = function (name, rate, category) {
     console.log(this.countUser);
   };
 };
+Movie.prototype.methodName = function () {};
 
 const movie = new Movie("Hero", 9, 100, 1);
 console.log(movie);

@@ -73,16 +73,16 @@
 //     return this.items;
 //   }
 //   addItem(item) {
-//     items.push(item);
-//     return items;
+//     this.items.push(item);
+//     return this.items;
 //   }
 //   removeItem(item) {
-//     for (let i = 0; i < items.length; i += 1) {
-//       if (items[i] === item) {
-//         items.splice(i, 1);
+//     for (let i = 0; i < this.items.length; i += 1) {
+//       if (this.items[i] === item) {
+//         this.items.splice(i, 1);
 //       }
 //     }
-//     return items;
+//     return this.items;
 //   }
 // }
 
@@ -95,13 +95,13 @@
 // // console.log(storage);
 
 // const items = storage.getItems();
-// console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
+// console.table("getItems", items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
 
 // storage.addItem("Дроид");
-// console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
+// console.table("addItem", storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
 
 // storage.removeItem("Пролонгер");
-// console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+// console.table("removeItem", storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
 
 // // ======================= 4 ==========================
 // // Напиши класс StringBuilder. На вход он получает один параметр - строку,
@@ -178,15 +178,15 @@ class Car {
 
   constructor(maxSpeed, price) {
     this.speed = 0;
-    this._price = price;
     this.maxSpeed = maxSpeed;
+    this._price = price;
     this.isOn = false;
     this.distance = 0;
   }
   //    Добавь геттер и сеттер для свойства price,
   //    который будет работать с свойством цены автомобиля.
   set price(price) {
-    this._price = price;
+    return (this._price = price);
   }
   get price() {
     return this._price;
@@ -212,9 +212,8 @@ class Car {
 
   accelerate(value) {
     if (this.speed <= this.maxSpeed) {
-      this.speed += value;
+      return (this.speed += value);
     }
-    return this.speed;
   }
 
   // Отнимает от свойства speed полученное значение,
@@ -222,18 +221,16 @@ class Car {
 
   decelerate(value) {
     if (this.speed >= 0) {
-      this.speed -= value;
+      return (this.speed -= value);
     }
-    return this.speed;
   }
 
   // Добавляет в поле distance киллометраж (hours * speed),
   // но только в том случае если машина заведена!
   drive(hours) {
     if (this.isOn === true) {
-      this.distance = hours * this.speed;
+      return (this.distance = hours * this.speed);
     }
-    return this.distance;
   }
 }
 
