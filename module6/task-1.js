@@ -1,12 +1,11 @@
 "use strict";
-import * as allUsers from "./users.js";
-let users = allUsers.default;
+// import * as allUsers from "/users.js";
+// let users = allUsers.default;
 
+// console.log(users);
 // ================ 1 ====================
 
 // Получить массив имен всех пользователей (поле name).
-
-// console.log(users);
 
 // const getUserNames = (users) => {
 //   // твой код

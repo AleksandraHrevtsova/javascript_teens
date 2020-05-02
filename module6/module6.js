@@ -23,8 +23,8 @@ console.log("imperative", filterArray); // 4
 
 // declarative
 
-const filteredNumber = array.filter((value) => {
-  return value > 3;
+const filteredNumber = array.filter((item) => {
+  return item > 3;
 }); // 1
 console.log("declarative", filteredNumber);
 
@@ -103,16 +103,15 @@ console.log("не изменившийся исходный массив", array
 // Не возвращает
 
 const arrNumber = [1, 4, 3, 14, 16, 2, 90];
+
 for (let i = 0; i < arrNumber.length; i += 1) {
-  console.log(arrNumber[i]);
+  console.log("for", arrNumber[i]);
 }
 // Функциональный forEach
 arrNumber.forEach((el) => console.log("forEach", el));
 
 // Указываем параметр idx если нужен доступ к счетчику
-arrNumber.forEach((num, idx) =>
-  console.log(`forEach: index ${idx}, value ${num}`)
-);
+arrNumber.forEach((el, x) => console.log(`forEach: index ${x}, value ${el}`));
 
 const tests = ["test-1", "test-2", "test-3", "test-4", "test-5", "test-6"];
 tests.forEach((test) => console.log(test));
@@ -137,7 +136,7 @@ const doubleNumbers = arrNumber.map((num) => num * 2);
 console.log("map:", doubleNumbers);
 console.log("исходный массив", arrNumber);
 
-// // example 2
+// example 2
 
 const users = [
   { name: "jack", isActive: true },
@@ -162,15 +161,15 @@ console.log("map:", names);
 // Возвращает коллекцию
 
 // example 1
-console.log("исходник", arrNumber);
-
+console.log("исходник", arrNumber); //  [1, 4, 3, 14, 16, 2, 90]
+const n1 = [1, 4, 3, 14, 5, 5, 5, 16, 2, 90];
 const filteredArray = arrNumber.filter((el) => el > 10);
 console.log("filter-1:", filteredArray);
 
 const filteredArray1 = arrNumber.filter((num) => num < 5);
-console.log("filte-2:", filteredArray1);
+console.log("filter-2:", filteredArray1);
 
-const filteredArray2 = arrNumber.filter((num) => num === 5);
+const filteredArray2 = n1.filter((num) => num === 5);
 console.log("filter-3:", filteredArray2);
 
 // example 2
@@ -178,11 +177,17 @@ console.log("filter-3:", filteredArray2);
 // Для каждого элемента коллекции (user) проверим поле isActive.
 // Если оно true, то текущий элемент (user) будет записан в результирующий массив.
 
+// const activeUsers = users.filter((user) => user.isActive === true);
+
 const activeUsers = users.filter((user) => user.isActive);
-console.log("filter:", activeUsers);
+console.log("filter: active", activeUsers);
+
+// const inActiveUsers = users.filter((user) => user.isActive !== true);
+// const inActiveUsers = users.filter((user) => user.isActive === false);
 
 const inActiveUsers = users.filter((user) => !user.isActive);
-console.log("filter:", inActiveUsers);
+
+console.log("filter: inactive", inActiveUsers);
 
 // === Array.prototype.find() ===
 
@@ -215,8 +220,8 @@ console.log("find:", five); // undefined
 // example 2
 
 const newUsers = [
-  { id: "000", name: "Mango", isActive: true },
-  { id: "001", name: "Poly", isActive: false },
+  { id: "01", name: "Mango", isActive: true },
+  { id: "01", name: "Poly", isActive: false },
   { id: "002", name: "Ajax", isActive: true },
   { id: "003", name: "Chelsey", isActive: false },
 ];
@@ -224,10 +229,11 @@ const newUsers = [
 const user = newUsers.find((el) => el.id === "002");
 console.log(user); // {id: "002", name: "Ajax", isActive: true}
 
-const getUserById = (array, id) => array.find((el) => el.id === id);
+const getUserById = (array, id_value) => array.find((el) => el.id === id_value);
 
 console.log(getUserById(newUsers, "003")); // {id: "003", name: "Chelsey", isActive: false}
-console.log(getUserById(newUsers, "01")); // undefined
+console.log(getUserById(newUsers, "01")); // { id: "01", name: "Mango", isActive: true },
+console.log(getUserById(newUsers, "000")); // undefined
 
 // === Array.prototype.every(), Array.prototype.some() ===
 
@@ -243,130 +249,148 @@ console.log(getUserById(newUsers, "01")); // undefined
 // Не изменяет
 // Возвращает true или false
 
-// // example 1
+// example 1
 
-// const sumNums = [1, 20, 31, 4, 500];
-// const isBig = (val) => val >= 10;
-// console.log(sumNums.every(isBig)); // false
-// console.log(sumNums.some(isBig)); // true
+const sumNums = [1, 20, 31, 4, 500];
+const isBig = (val) => val >= 10;
 
-// const isBig1 = (val) => val >= 1;
-// console.log(sumNums.every(isBig1)); // true
-// console.log(sumNums.some(isBig1)); // true
+console.log(sumNums.every(isBig)); // false
+// как лог оператор && - вернет true, когда все true
 
-// const isBig2 = (val) => val >= 501;
-// console.log(sumNums.every(isBig2)); // false
-// console.log(sumNums.some(isBig2)); // false
+console.log(sumNums.some(isBig)); // true
+// как лог оператор || - вернет true, когда хотя бы один элемент true
 
-// // every ==> true, if all elements === true
-// // some ==> true, if only one element === true
+const isBig1 = (val) => val >= 1;
+console.log(sumNums.every(isBig1)); // true
+console.log(sumNums.some(isBig1)); // true
 
-// // example 2
+const isBig2 = (val) => val >= 501;
+console.log(sumNums.every(isBig2)); // false
+console.log(sumNums.some(isBig2)); // false
 
-// const fruits = [
-//   {
-//     name: "apples",
-//     amount: 3,
-//   },
-//   {
-//     name: "bananas",
-//     amount: 10,
-//   },
-//   {
-//     name: "oranges",
-//     amount: 1,
-//   },
-// ];
-
-// const allAvailble = fruits.every((andrei) => andrei.amount > 0);
-// console.log(allAvailble);
-
-// const anyAvailble = fruits.some((sum) => sum.amount >= 10);
-// console.log(anyAvailble);
-
-// // === Array.prototype.reduce() ===
-
-// // используется для последовательной обработки каждого элемента массива с сохранением
-// // промежуточного результата. Швейцарский нож функциональных методов массива.
-// // Перебирает
-// // Не изменяет
-// // Возвращает что угодно
-
-// // array.reduce(сallback[(previousValue, currentItem, index, array)],
-// // initialValue)previousValue — промежуточный результат (аккумулятор)
-// // currentItem — текущий элемент массива
-// // index — индекс текущего элемента массива
-// // array — оригинальный массив
-
-// // example 1
-
-// const newSum = sumNums.reduce((acc, value) => acc + value, 10);
-// console.log(newSum);
-
-// let total = 0;
-
-// for (let el of sumNums) {
-//   total += el;
-// }
-
-// console.log(total);
+// every ==> true, if all elements === true
+// some ==> true, if only one element === true
 
 // // example 2
 
-// const tweets = [
-//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
-//   { id: "001", likes: 2, tags: ["html", "css"] },
-//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
-//   { id: "003", likes: 8, tags: ["css", "react"] },
-//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
-// ];
+const fruits = [
+  { name: "apples", amount: 3 }, // true
+  { name: "bananas", amount: 10 }, // true
+  { name: "oranges", amount: 1 }, // true
+];
 
-// const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
-// console.log(likes);
+const allAvailble = fruits.every((el) => el.amount > 0);
+console.log(allAvailble); // true
 
-// const countLikes = (tweets) =>
-//   tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
-// console.log(countLikes(tweets));
+const anyAvailble = fruits.some((sum) => sum.amount >= 10);
+console.log(anyAvailble); // true
 
-// const getTags = (tweets) =>
-//   tweets.reduce((allTags, tweet) => {
-//     allTags.push(...tweet.tags);
+// === Array.prototype.reduce() ===
 
-//     return allTags;
-//   }, []);
+// используется для последовательной обработки каждого элемента массива с сохранением
+// промежуточного результата. Швейцарский нож функциональных методов массива.
+// Перебирает
+// Не изменяет
+// Возвращает что угодно
 
-// const tags = getTags(tweets);
-// console.log(tags);
+// array.reduce(сallback[(previousValue, currentItem, index, array)],
+// initialValue)previousValue — промежуточный результат (аккумулятор)
+// currentItem — текущий элемент массива
+// index — индекс текущего элемента массива
+// array — оригинальный массив
 
-// const getTagStats = (acc, tag) => {
-//   if (!acc.hasOwnProperty(tag)) {
-//     acc[tag] = 0;
-//   }
+// // example 1
+console.log("initial array", sumNums); // [1, 20, 31, 4, 500]
+const newSum = sumNums.reduce((acc, el) => acc + el, 0);
+//                                   1000 + 1 + 20 + 31 + 4 + 500
+//                                       1001 + 20
+//                                            1021 + 31
+//                                                 1052 + 4
+//                                                     1056 + 500
+//                                                           1556
+console.log("reduce acc", newSum); // 556, если начальное значение 0
 
-//   acc[tag] += 1;
+let total = 0;
 
-//   return acc;
-// };
+for (let el of sumNums) {
+  total += el;
+  // 0 += 1
+  // 1 += 20
+  // 21 += 31
+  // 52 += 4
+  // 56 += 500 === 556
+}
+
+console.log("for ...of", total);
+//=======================
+// let a = [121, 92, 35, 54];
+//       4, 11, 8, 9
+// 1 - перебор массива
+// 2 - каждый эл-т в строку: "121"
+// 3 - строку "121" => ["1", "2", "1"]
+// 4 - const sum = arr.reduce((acc, el) => acc + Number(el), 0);
+// 5 - arr.push(sum)
+//=======================
+
+// // example 2
+
+const tweets = [
+  // 0
+  { id: "000", likes: 5, tags: ["js", "nodejs"] }, // 5
+  { id: "001", likes: 2, tags: ["html", "css"] }, // 7
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] }, // 24
+  { id: "003", likes: 8, tags: ["css", "react"] }, // 32
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] }, // 32
+];
+//                           acc, element => //////, начальное значение acc
+const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
+//                                                    0 + 5 + 2 + 17 + 8 + 0
+console.log(likes); // 32
+
+const countLikes = (arr) => arr.reduce((acc, el) => acc + el.likes, 0);
+
+console.log(countLikes(tweets)); // 32
+
+const getTags = (array) =>
+  //             acc, element => {/////}, начальное значение acc
+  array.reduce((acc, elem) => {
+    acc.push(...elem.tags);
+    //["js", "nodejs", "html", "css", "html", "js", "nodejs", "css", "react", "js", "nodejs", "react"]
+
+    return acc;
+  }, []);
+
+const tags = getTags(tweets);
+console.log("все теги объектов", tags);
+
+const getTagStats = (acc, tag) => {
+  if (!acc.hasOwnProperty(tag)) {
+    acc[tag] = 0;
+  }
+  acc[tag] += 1;
+  return acc;
+};
 
 // // Начальное значение аккумулятора это пустой объект {}
-// const countTags = (tags) => tags.reduce(getTagStats, {});
+// ["js", "nodejs", "html", "css", "html", "js", "nodejs", "css", "react", "js", "nodejs", "react"]
+const countTags = (arr) => arr.reduce(getTagStats, {});
 
-// const tagCount = countTags(tags);
-// console.log(tagCount);
+const tagCount = countTags(tags);
+console.log(tagCount);
 
-// // === Array.prototype.sort() === Позволяет сортировать элементы массива на месте.
-// // Помимо возврата отсортированного массива метод sort также отсортирует массив,
-// // на котором он был вызван. По умолчанию метод sort сортирует, преобразуя элементы к строке.
+// === Array.prototype.sort() === Позволяет сортировать элементы массива на месте.
+// Помимо возврата отсортированного массива метод sort также отсортирует массив,
+// на котором он был вызван. По умолчанию метод sort сортирует, преобразуя элементы к строке.
 
-// // Перебирает
-// // Изменяет
-// // Возвращает коллекцию
+// Перебирает
+// Изменяет
+// Возвращает коллекцию
 
-// const alpha = [1, 3, 5, 7, 4, 8, 2, 6];
+const alpha = [1, 3, 5, 7, 4, 8, 2, 6];
 
-// console.log("before sort:", alpha);
-// console.log("after sort", alpha.sort());
+console.log("before sort:", alpha);
+console.log("after sort", alpha.sort());
 
-// const clients = ["Jane", "Jack", "Cecile", "Arlo", "Susan"];
-// console.log("before sort:", clients);
-// console.log("after sort", clients.sort());
+const clients = ["Jane", "Jack", "Cecile", "Arlo", "Susan"];
+console.log("before sort:", clients);
+console.log("after sort", clients.sort());
