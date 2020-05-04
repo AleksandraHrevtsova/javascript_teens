@@ -386,11 +386,28 @@ console.log(tagCount);
 // Изменяет
 // Возвращает коллекцию
 
+// === 1 ===
 const alpha = [1, 3, 5, 7, 4, 8, 2, 6];
 
 console.log("before sort:", alpha);
 console.log("after sort", alpha.sort());
 
+// === 2 ===
 const clients = ["Jane", "Jack", "Cecile", "Arlo", "Susan"];
 console.log("before sort:", clients);
 console.log("after sort", clients.sort());
+
+// === 3 ===
+// arr.sort(fn) - свой порядок сортировки
+const users1 = [
+  { name: "Mango", daysActive: 15 },
+  { name: "Poly", daysActive: 4 },
+  { name: "Ajax", daysActive: 27 },
+  { name: "Chelsey", daysActive: 2 },
+];
+
+const sortByActiveDays = (a, b) => a.daysActive - b.daysActive;
+
+console.log(users1.sort(sortByActiveDays));
+
+// цепочки методов массивов
