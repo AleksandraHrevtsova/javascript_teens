@@ -41,9 +41,9 @@ console.log("task 2: ", getUsersWithEyeColor(users, "blue")); // [объект M
 
 const getUsersWithGender = (users, gender) => {
   // твой код
-  users = users.filter((user) => user.gender === gender);
-  console.log(users);
-  return users.map((user) => user.name);
+  return users
+    .filter((user) => user.gender === gender)
+    .map((user) => user.name);
 };
 
 console.log("task 3: ", getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
@@ -119,7 +119,9 @@ console.log("task 9: ", getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
 // ================ 10 ====================
-// Получить массив всех умений всех пользователей (поле skills), при этом не должно быть повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
+// Получить массив всех умений всех пользователей (поле skills),
+// при этом не должно быть повторяющихся умений и они должны
+// быть отсортированы в алфавитном порядке.
 
 const getSortedUniqueSkills = (users) => {
   // твой код
