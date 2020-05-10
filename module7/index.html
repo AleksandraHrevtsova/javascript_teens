@@ -12,18 +12,42 @@
 <body>
     <header class="container">
         <ul class="menu">
-            <li class="menu-item">home</li>
-            <li class="menu-item">about</li>
-            <li class="menu-item">gallery</li>
-            <li class="menu-item">blog</li>
+            <li class="menu-item"><a href="#">home</a></li>
+            <li class="menu-item"><a href="#">about</a></li>
+            <li class="menu-item"><a href="#">gallery</a></li>
+            <li class="menu-item"><a href="#">blog</a></li>
         </ul>
         <button class="btn js-btn" data-action="action" data-random="1">click</button>
     </header>
     <main class="container">
 
         <div class="profile-container">
-            <!-- ЗДЕСЬ БУДУТ СОЗДАВАТЬСЯ ПРОФИЛИ ЮЗЕРОВ -->
+
+            <!-- ЗДЕСЬ БУДУТ СОЗДАВАТЬСЯ ПРОФИЛИ ЮЗЕРОВ по примеру ниже -->
+
+            <!-- <div class="user-profile">
+                <img class="avatar" src="./img/1.jpeg" alt="">
+                <ul class="intro">
+                    <li><b>Name:</b>Omar Halem</li>
+                    <li><b>Phone:</b>999-888-77-66</li>
+                    <li><b>Email:</b>omar.halem@gmail.com</li>
+                    <li><b>Location:</b>Egypt, Aleksandria</li>
+                </ul>
+            </div> -->
+
         </div>
+
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>type</th>
+                    <th>amount</th>
+                    <th>date</th>
+                    <th>business</th>
+                </tr>
+            </thead>
+            <!-- <tbody></tbody> -->
+        </table>
 
         <ul class="main-list">
             <li class="main-item">
@@ -57,29 +81,11 @@
             </li>
         </ul>
     </main>
-    <!-- <script type="module" src="./module7.js"></script> -->
+    <script type="module" src="./module7.js"></script>
     <script type="module" src="./userProfile.js"></script>
+    <script type="module" src="./transaction-history.js"></script>
+    <script type="module" src="./transaction.js"></script>
+    <!-- <script type="module" src="./hm.js"></script> -->
 </body>
 
 </html>
-
-<!-- data-action="action" data-random="1" -->
-
-<!--<script type="module" src="./transaction-history.js"></script>
-    <script type="module" src="./transaction.js"></script> -->
-<!-- <script type="module" src="./hm.js"></script> -->
-
-
-<!-- <div class="profile-container">
-            сюда будут записываться профили юзеров 
-        </div> -->
-
-<div class="user-profile">
-    <img class="avatar" src="./img/1.jpeg" alt="">
-    <ul class="intro">
-        <li><b>Name:</b>Omar Halem</li>
-        <li><b>Phone:</b>999-888-77-66</li>
-        <li><b>Email:</b>omar.halem@gmail.com</li>
-        <li><b>Location:</b>Egypt, Aleksandria</li>
-    </ul>
-</div>

@@ -74,12 +74,12 @@ function createUserProfile({ avatar, name, phone, email, address }) {
 
 // // СОЗДАДИМ ФУНКЦИЮ ДЛЯ ГЕНЕРАЦИИ ПОЛЯ С ДАННЫМИ ЮЗЕРА
 function createInfoItem(label, text) {
-  // создаем динамичный элемент списка для функции createUserProfile
+  // создаем динамичный узел-элемент списка для функции createUserProfile
   const item = document.createElement("li");
   // в элементе тег b с описанием
   const title = document.createElement("b");
   title.textContent = `${label}`;
-  // текстовый элемент для указания данных юзера
+  // создаем текстовый элемент для указания данных юзера
   const itemText = document.createTextNode(text);
   // записываем в элемент значение тега b (описание поля) и значение поля юзера
   item.append(title, itemText);
@@ -87,17 +87,17 @@ function createInfoItem(label, text) {
   return item;
 }
 
-// // ==================
-// //   const nameField = document.createElement("li");
-// //   const label = document.createElement("b");
-// //   label.textContent = "Name: ";
-// //   const nameFieldTextContent = document.createTextNode("Omar Halem");
+// ==================
+//   const nameField = document.createElement("li");
+//   const label = document.createElement("b");
+//   label.textContent = "Name: ";
+//   const nameFieldTextContent = document.createTextNode("Omar Halem");
 
-// //   nameField.appendChild(label);
-// //   nameField.appendChild(nameFieldTextContent);
-// //   nameField.append(label, nameFieldTextContent);
+//   nameField.appendChild(label);
+//   nameField.appendChild(nameFieldTextContent);
+//   nameField.append(label, nameFieldTextContent);
 
-// //   infoList.appendChild(nameField);
-// //   container.appendChild(profileImage);
-// //   container.appendChild(infoList);
-// // ==================
+//   infoList.appendChild(nameField);
+//   container.appendChild(profileImage);
+//   container.appendChild(infoList);
+// ==================
