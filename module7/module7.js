@@ -1,99 +1,96 @@
 "use strict";
 
-document.body.style.background = "red";
+// Document Object Model, сокращённо DOM – объектная модель документа,
+// которая представляет все содержимое страницы в виде объектов,
+// которые можно менять.
 
-const ddd = document.querySelector(".image");
+// Объект document – основная «входная точка».
+// С его помощью мы можем что-то создавать или менять на странице.
 
-console.log(ddd.attributes); // обьект всех аттрибутов елемента
-// NamedNodeMap {0: class, 1: src, 2: alt, length: 3}
+console.log("HTML разметка", document); // html
+console.dir(document); // object
+// document.querySelector - до первого совпадения
+// используется для уникальных элементов
 
-console.log(ddd.hasAttribute("alt")); // true
+// обращение к элементу через класс
+const content = document.querySelector(".p"); // получаем доступ к узлу-элементу (тег <р>)
+console.log(content);
+console.dir(content);
 
-console.log(ddd.getAttribute("alt")); // lake and clouds
+content.textContent = "Привет, РЕНАТА!!!";
+content.style.backgroundColor = "red";
+content.style.fontSize = "36px";
 
-ddd.setAttribute("alt", "amazing lake and clouds");
+// возвращает true или false, в зависимости от того, есть ли у элемента класс
+console.log(content.classList);
 
-console.log(ddd.getAttribute("alt")); // amazing lake and clouds
+console.log(content.classList.contains("js-list_content")); // false
+console.log(content.classList.contains("p")); // true
+console.log(content.classList.contains("text")); // true
 
-ddd.removeAttribute("alt");
+// добавляет класс cls в список классов элемента
+content.classList.add("js-list_content");
+console.log(content.classList); // ["p", "text", "js-list_content", (value: "p text js-list_content")];
+console.log(content.classList.contains("js-list_content")); // true
 
-console.log(ddd.attributes);
-console.log(ddd.hasAttribute("alt"));
+// удаляет класс cls из списка классов элемента
+content.classList.remove("text");
+// проверяем наличие класса
+console.log(content.classList.contains("text")); // false
+// выводим массив всех имен классов элемента
+console.log(content.classList);
 
-const input = document.querySelector(".user_name");
-console.log(input.value);
+// заменяет существующий класс на указанный
+//                           ( старый класс, новый класс )
+content.classList.replace("js-list_content", "js-item_text");
+// проверяем наличие старого класса
+console.log(content.classList.contains("js-list_content")); // false
+// выводим массив всех имен классов элемента
+console.log(content.classList); // ["p", "js-item_text", value: "p js-item_text"]
 
-// setTimeout(() => (document.body.style.background = ""), 3000);
+// если класса cls нет, добавляет его, если есть, удаляет
+content.classList.toggle("main-content");
+console.log(content.classList);
 
-// // выберет родителя elem = body
-// document.body.parentNode.style.background = "red";
+content.classList.toggle("js-item_text");
+console.log(content.classList);
 
-// // псевдо-массив (коллекция) хранит все дочерние элементы, включая текстовые
-// // только для чтения
-// let elems = document.body.childNodes;
-// // методы массива не работают, поэтому можно через call/apply:
-// // [].forEach.call(elems, function(elem) {
-// //     alert( elem ); // HEAD, текст, BODY
-// //   });
+const image = document.querySelector(".js-img");
+console.dir(image);
 
-// // или сделать из коллекции массив
-// elems = Array.prototype.slice.call(elems);
+image.alt = "picture";
+image.setAttribute("alt", "item image");
 
-// elems.forEach(function(elem) {
-//   console.log(elem.tagName);
-// });
+// image.width = image.width / 1.5;
+// image.height = image.height / 1.5;
 
-// // псевдо-массив хранит только дочерние узлы-элементы, то есть соответствующие тегам
-// for (let i = 0; i < document.body.children.length; i++) {
-//   console.log(document.body.children[i]);
-// }
+image.src = "./img/2.jpeg";
+image.setAttribute("src", "./img/4.jpeg");
 
-// // elem.firstElementChild === elem.children[0]
-// // elem.lastElementChild === elem.children[elem.children.length - 1]
+image.name = "Beautiful"; // добавлен новый итрибут
 
-// // выберет первый дочерний элемент внутри elem, включая текстовые узлы
-// document.body.firstElementChild.style.background = "green";
+console.log(image.attributes);
 
-// // выберет последний дочерний элемент внутри elem, включая текстовые узлы
-// document.documentElement.lastChild.style.background = "silver";
+// const button = document.querySelector(".js-btn"); // через класс
+const button = document.querySelector('button[data-action="action"]');
 
-// // выберет последний дочерний узел-элемент внутри elem
-// document.documentElement.lastElementChild.style.textTransform = "uppercase";
+console.log("дефолтный текст кнопки (из HTML): ", button.textContent); // click
+button.textContent = "Hello!";
+console.log("новый текст кнопки: ", button.textContent); // Hello
 
-// // выберет элемент "слева" от elem (его предыдущего соседа)
-// // document.body.previousSibling.style.color = "blue";
+// const menuItem = document.querySelectorAll(".menu-item");
+// const homeMenuItems = document.querySelector(".menu-item");
 
-// // выберет узел-элемент "слева" от elem (его предыдущего соседа)
-// // document.body.previousElementSibling.style.background = "yellow";
+button.addEventListener("click", () => {
+  updateImage();
+});
 
-// // выберет элемент "справа" от elem (его следующего соседа)
-// // document.body.nextSibling;
+function updateImage() {
+  image.setAttribute("src", "./img/7.jpeg");
+  content.style.backgroundColor = "black";
+  content.style.color = "white";
+}
+// console.log(image.attributes);
 
-// // // выберет узел-элемент "справа" от elem (его предыдущего соседа)
-// document.body.nextElementSibling;
-
-// const selectedById = document.querySelector("#menu");
-// selectedById.style.textTransform = "uppercase";
-// selectedById.style.fontSize = "2rem";
-// console.log(selectedById); // ...
-
-// const menuItemsByTagName = document.querySelectorAll("li");
-// console.log(menuItemsByTagName); // ...
-
-// const menuItemsByClass = document.querySelectorAll(".menu-item");
-// console.log(menuItemsByClass); // ...
-
-// const firstMenuItem = document.querySelector(".menu-item");
-// firstMenuItem.style.color = "#BF4E30";
-// console.log(firstMenuItem); // ...
-
-// const text = document.querySelector(".article-text");
-// console.log(text.textContent); // текстовый контент внутри p.article-text
-
-// const title = document.querySelector(".article-title");
-// title.textContent = "Welcome to Bahamas!";
-
-// const button = document.querySelector(".btn");
-
-// button.style.backgroundColor = "teal";
-// console.log(button.style); // объект инлайн стилей
+// console.log("button data-action: ", button.dataset.action);
+// console.log("button data-random: ", button.dataset.random);
